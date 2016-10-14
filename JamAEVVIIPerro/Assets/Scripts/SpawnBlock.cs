@@ -3,23 +3,30 @@ using System.Collections;
 
 public class SpawnBlock : MonoBehaviour {
 
-    public Transform[] spawns = new Transform[7];
     public GameObject bloque;
+    public Sprite[] sprites = new Sprite[4];
 
-    private GameObject x;
 	// Use this for initialization
 	void Start () {
-        x = (GameObject)Instantiate(bloque, spawns[0].position, Quaternion.identity);
+        for (int i = 1; i < 8; ++i)
+        {
+            bloque.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
+            Instantiate(bloque, transform.FindChild("Building" + i + "/Spawn").transform.position, Quaternion.identity);
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 pos = x.transform.position;
-        x.transform.position = new Vector3(pos.x, pos.y - 0.01f, pos.z);
 	}
 
-    void SpawnBlockUnit()
+    public void SpawnBlockUnit(Transform spawn)
     {
+        bloque.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
+        Instantiate(bloque, spawn.position, Quaternion.identity);
+    }
 
+    public void DeleteBlockUnit(Collider2D bloque)
+    {
+        Destroy(bloque.gameObject);
     }
 }
