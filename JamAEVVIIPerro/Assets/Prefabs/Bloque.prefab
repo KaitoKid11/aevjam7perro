@@ -9,9 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 436240}
   - 212: {fileID: 21274120}
+  - 61: {fileID: 6130404}
+  - 114: {fileID: 11405918}
   m_Layer: 0
   m_Name: Bloque
-  m_TagString: Untagged
+  m_TagString: Bloque
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23,12 +25,37 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.451, y: 6.189, z: 0}
+  m_LocalScale: {x: 0.71, y: 0.8965456, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6130404
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150906}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.010227589, y: 0.010066032}
+  serializedVersion: 2
+  m_Size: {x: 2.555057, y: 2.5467694}
+--- !u!114 &11405918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2537045067e3b2046b6bd0c34caa0b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21274120
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -55,8 +82,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d9896fc60269afd47b9efb2bfc16f567, type: 3}
-  m_Color: {r: 1, g: 0.4558823, b: 0.8639706, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6cb4a954d5173bc42988f6af2db89981, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
