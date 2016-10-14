@@ -18,7 +18,7 @@ public class SpawnBlock : MonoBehaviour {
         x.transform.position = new Vector3(pos.x, pos.y - 0.01f, pos.z);
 	}
 
-    void SpawnBlock()
+    void SpawnBlockUnit()
     {
 
     }
