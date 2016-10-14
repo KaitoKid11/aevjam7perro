@@ -3,13 +3,15 @@ using System.Collections;
 
 public class PlayerCombat : MonoBehaviour {
 
-    public GameObject currentBasicBullet;
     private float m_timeSinceLastAttack;
+
+    [Header("Bullets")]
+    public GameObject currentBasicBullet;
     public float m_shootingCooldown = 1f;
-	// Use this for initialization
-	void Start () {
-	
-	}
+
+    [Header("Health")]
+    public float maxHealth = 100f;
+    public float currentHealth = 100f;
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,4 +24,35 @@ public class PlayerCombat : MonoBehaviour {
         }
         m_timeSinceLastAttack -= Time.deltaTime;
 	}
+
+    public void receiveDamage(float amount)
+    {
+        currentHealth -= amount;
+        
+        if(currentHealth <= 0)
+        {
+            currentHealth = 0f;
+            death();
+        }
+        GUIManager.GUIManagerInstance.updateHealthUI(amount);
+
+    }
+
+    public void receiveHealth(float amount)
+    {
+        currentHealth += amount;
+
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+
+        GUIManager.GUIManagerInstance.updateHealthUI(amount);
+
+
+    }
+
+
+    public void death()
+    {
+        Debug.Log("has muerto");
+    }
 }
