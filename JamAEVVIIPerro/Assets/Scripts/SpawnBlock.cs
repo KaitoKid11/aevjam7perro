@@ -14,7 +14,7 @@ public class SpawnBlock : MonoBehaviour {
         {
             if(i != 1 && i != 7)
             {
-                if(lastUsed[i-1] == /*Valor de carretera o río en giro*/)
+                if(lastUsed[i-1] == 999/*Valor de carretera o río en giro*/)
                 {
                     //COLOCAR LOS CUADROS CONTIGUOS A CARRETERA O RÍO en giro
                 }
@@ -49,10 +49,10 @@ public class SpawnBlock : MonoBehaviour {
             Instantiate(bloque, spawn.position, Quaternion.identity);
             lastUsed[index] = 0;
         }
-        else if(lastUsed[index] == /*CARRETERA O RÍO*/)
+        else if(lastUsed[index] == 999/*CARRETERA O RÍO*/)
         {
             /*PUEDE SEGUIR RECTO O GIRAR*/
-            if(/*GIRAR*/)
+            if(false /*GIRAR*/)
             {
                 if(index == 0)
                 {
