@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 11411664}
   - 114: {fileID: 11480604}
   m_Layer: 0
-  m_Name: ForwardBullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,8 +71,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea37029401581c4caaf5c506d3b9e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
-  damage: 10
+  bulletDirection: -1
+  bulletSpeed: 5
+  damage: 1
 --- !u!114 &11480604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356a05a246409934bb4c7860b283d26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secToDestroy: 4
+  secToDestroy: 5
 --- !u!212 &21202468
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -111,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300010, guid: 76efdbc24bd3d3a4e8eb0068c69838c1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76efdbc24bd3d3a4e8eb0068c69838c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

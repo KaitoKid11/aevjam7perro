@@ -6,11 +6,9 @@ using UnityEngine.EventSystems;
 public class PauseMenu : MonoBehaviour {
 
     public GameObject buttonToHighlight;
-    float normalTimeScale;
 
     void Start()
     {
-        normalTimeScale = Time.timeScale;
         StartCoroutine(highlightButtonAfterFrameEnd());
     }
 
@@ -24,8 +22,7 @@ public class PauseMenu : MonoBehaviour {
         {
             Debug.Log("kk");
             transform.gameObject.SetActive(false);
-            //TODO parar juego
-            Time.timeScale = normalTimeScale;
+            Time.timeScale = 1.0f;
         }
     }
 
