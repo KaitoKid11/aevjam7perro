@@ -10,6 +10,12 @@ public class EnemyManager : MonoBehaviour
         Sin
     }
 
+    // Tipos de ataque de los enemigos
+    private enum AttackType
+    {
+        Shoot
+    }
+
     // Márgenes del mapa de juego
     private float X_MIN = -7.0f;
     private float X_MAX = 7.0f;
@@ -22,6 +28,9 @@ public class EnemyManager : MonoBehaviour
 
     // Prefab del enemigo
     public GameObject enemy;
+    
+    // Proyectiles
+    public GameObject enemyBullet;
 
     #region Singleton
     public static EnemyManager enemyManagerInstance;
@@ -88,14 +97,17 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Instanciación de un enemigo en función de los valores recibidos
-    void InstantiateEnemy(GameObject enemyPrefab, Vector3 enemyPosition,
-        Quaternion enemyRotation, MovementType movementType)
+    void InstantiateEnemy(GameObject enemyPrefab, Vector3 enemyPosition, Quaternion enemyRotation,
+        MovementType movementType = MovementType.Straight, AttackType attackType = AttackType.Shoot)
     {
         // Instancia
         GameObject newEnemyInstance = (GameObject)Instantiate(enemyPrefab, enemyPosition, enemyRotation);
 
         // Movimiento
         SetMovement(newEnemyInstance, movementType);
+
+        // Ataque
+        SetAttack(newEnemyInstance, attackType);
     }
 
     // Tipo de movimiento para nuevos enemigos en función de la probabilidad
@@ -120,6 +132,20 @@ public class EnemyManager : MonoBehaviour
                 break;
             case MovementType.Sin:
                 enemyInstance.AddComponent<EnemyMoveSin>();
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Añade el componente de movimiento a un enemigo
+    void SetAttack(GameObject enemyInstance, AttackType attackType)
+    {
+        switch (attackType)
+        {
+            case AttackType.Shoot:
+                enemyInstance.AddComponent<EnemyShoot>();
+                enemyInstance.GetComponent<EnemyShoot>().EnemyBullet = enemyBullet;
                 break;
             default:
                 break;
