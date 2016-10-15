@@ -91,7 +91,7 @@ public class EnemyManager : MonoBehaviour
     // Next wave random generation
     void GenerateNextWave()
     {
-        WavePattern nextWave = WavePattern.Five_Mix; //(WavePattern)Random.Range(0, numWavePatters);
+        WavePattern nextWave = (WavePattern)Random.Range(0, numWavePatters);
 
         switch(nextWave)
         {
@@ -114,14 +114,16 @@ public class EnemyManager : MonoBehaviour
                 GenerateWaveStairs(MovementType.Straight, AttackType.NoAttack, false);
                 break;
             case WavePattern.Hunters_Two:
+                GenerateWaveTwoHunters();
                 break;
             case WavePattern.Hunters_Three:
+                GenerateWaveThreeHunters();
                 break;
             case WavePattern.Two_Sides:
                 GenerateWaveTwoSides(MovementType.Straight, AttackType.Shoot);
                 break;
             case WavePattern.Five_Mix:
-                //GenerateWaveFiveMix();
+                GenerateWaveFiveMix();
                 break;
             default:
                 break;
@@ -136,7 +138,7 @@ public class EnemyManager : MonoBehaviour
             movementType = GetMovementType();
 
         // Posición del enemigo
-        float xRndPosition = Random.Range(X_MIN, X_MAX);
+        float xRndPosition = GetRandomPosition_X();
         Vector3 newEnemyPosition = new Vector3(xRndPosition, Y_MAX + Y_MIN_DIST, 0.0f);
 
         // Creación del enemigo
@@ -152,7 +154,7 @@ public class EnemyManager : MonoBehaviour
         if (line)
         {
             // Enemigos en línea
-            float xRndPosition = Random.Range(X_MIN, X_MAX);
+            float xRndPosition = GetRandomPosition_X();
             enemiesPosition[0] = new Vector3(xRndPosition, Y_MAX, 0.0f);
             enemiesPosition[1] = new Vector3(xRndPosition, Y_MAX + Y_MIN_DIST, 0.0f);
             enemiesPosition[2] = new Vector3(xRndPosition, Y_MAX + Y_MIN_DIST * 2, 0.0f);
@@ -205,6 +207,26 @@ public class EnemyManager : MonoBehaviour
         InstantiateEnemy(enemy, new Vector3(xCenterPosition + xRndDistance * 2, enemiesSpawnY[4], 0.0f), movementType, attackType);
     }
 
+    // Genera una oleada compuesta por dos enemigos rastreadores en paralelo
+    void GenerateWaveTwoHunters()
+    {
+        float xCenterPosition = GetCenterPosition_X();
+        float xRndDistance = Random.Range(X_MIN_DIST, GetHalfDistance_X());
+
+        InstantiateEnemy(enemy, new Vector3(xCenterPosition - xRndDistance, Y_MAX, 0.0f), MovementType.Follow, AttackType.NoAttack);
+        InstantiateEnemy(enemy, new Vector3(xCenterPosition + xRndDistance, Y_MAX, 0.0f), MovementType.Follow, AttackType.NoAttack);
+    }
+
+    // Genera una oleada compuesta por tres enemigos rastreadores en línea
+    void GenerateWaveThreeHunters()
+    {
+        float xRndPosition = GetRandomPosition_X();
+
+        InstantiateEnemy(enemy, new Vector3(xRndPosition, Y_MAX, 0.0f), MovementType.Follow, AttackType.NoAttack);
+        InstantiateEnemy(enemy, new Vector3(xRndPosition, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Follow, AttackType.NoAttack);
+        InstantiateEnemy(enemy, new Vector3(xRndPosition, Y_MAX + Y_MIN_DIST * 2, 0.0f), MovementType.Follow, AttackType.NoAttack);
+    }
+
     // Genera una oleada compuesta por dos líneas de enemigos
     void GenerateWaveTwoSides(MovementType movementType, AttackType attackType)
     {
@@ -216,6 +238,20 @@ public class EnemyManager : MonoBehaviour
         
         InstantiateEnemy(enemy, new Vector3(xCenterPosition + xRndDistance, Y_MAX, 0.0f), movementType, attackType);
         InstantiateEnemy(enemy, new Vector3(xCenterPosition + xRndDistance, Y_MAX + Y_MIN_DIST, 0.0f), movementType, attackType);
+    }
+
+    // Genera una oleada de cinco enemigos de diferente tipo
+    void GenerateWaveFiveMix()
+    {
+        float xCenterPosition = GetCenterPosition_X();
+        float xRndDistance = Random.Range(X_MIN_DIST, GetHalfDistance_X() / 2);
+
+        InstantiateEnemy(enemy, new Vector3(xCenterPosition - xRndDistance * 2, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Straight, AttackType.Shoot);
+        InstantiateEnemy(enemy, new Vector3(xCenterPosition, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Straight, AttackType.Shoot);
+        InstantiateEnemy(enemy, new Vector3(xCenterPosition + xRndDistance * 2, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Straight, AttackType.Shoot);
+        
+        InstantiateEnemy(enemy, new Vector3(xCenterPosition - xRndDistance, Y_MAX, 0.0f), MovementType.Sin, AttackType.NoAttack);
+        InstantiateEnemy(enemy, new Vector3(xCenterPosition + xRndDistance, Y_MAX, 0.0f), MovementType.Sin, AttackType.NoAttack);
     }
 
     // Instanciación de un enemigo concreto en función de los valores recibidos
@@ -240,6 +276,9 @@ public class EnemyManager : MonoBehaviour
                 break;
             case MovementType.Sin:
                 enemyInstance.AddComponent<EnemyMoveSin>();
+                break;
+            case MovementType.Follow:
+                enemyInstance.AddComponent<EnemyMoveFollow>();
                 break;
             default:
                 break;
@@ -270,6 +309,12 @@ public class EnemyManager : MonoBehaviour
     float GetCenterPosition_X()
     {
         return X_MIN + GetHalfDistance_X();
+    }
+
+    // Devuelve una posición aleatoria del mapa en el eje X
+    float GetRandomPosition_X()
+    {
+        return Random.Range(X_MIN, X_MAX);
     }
 
     // Tipo de movimiento para nuevos enemigos en función de la probabilidad

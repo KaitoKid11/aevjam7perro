@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327fdefe94354d34097e0a1ab2a88040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitingTime: 3
+  waitingTime: 2
   enemy: {fileID: 117212, guid: 4b036b10c225e5f469cd7136b6e82c9c, type: 2}
   enemyBullet: {fileID: 153258, guid: 44d68f05f3d294748996e504765354ae, type: 2}
 --- !u!1001 &100100000
