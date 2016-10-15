@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mapa
   - Bloque
+  - Intro
   layers:
   - Default
   - TransparentFX

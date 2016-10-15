@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerSpeed: 6
+  m_movementRestricted: 0
   minX: -5.93
   maxX: 5.7
   minY: -4.51
@@ -58,10 +59,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fbf8a2f53e33542a822afd1f08c905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_attackLevel: 0
+  m_timeInvulnerabilityBase: 1
   currentBasicBullet: {fileID: 153258, guid: c4a4a62982fbd50458d7d0c24ac44c6e, type: 2}
+  leftConeBullet: {fileID: 0}
+  RightConeBullet: {fileID: 0}
   m_shootingCooldown: 0.35
-  maxHealth: 100
-  currentHealth: 100
+  maxLevel: 3
 --- !u!212 &21262334
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -86,7 +90,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1690453557
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ab22429a35b5bea47909bb29e7ea46a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
