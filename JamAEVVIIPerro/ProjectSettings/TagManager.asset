@@ -8,6 +8,11 @@ TagManager:
   - Bloque
   - Intro
   - EnemyBullet
+  - Enemy
+  - LifeUp`
+  - PowerUp
+  - Spawn
+  - Delete
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,9 @@ GameObject:
   - 212: {fileID: 21262334}
   - 114: {fileID: 11417348}
   - 114: {fileID: 11418390}
+  - 50: {fileID: 5006910}
+  - 61: {fileID: 6136086}
+  - 95: {fileID: 9561508}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -25,12 +28,60 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.57, y: -4.05, z: 0}
+  m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 0.6726072, y: 0.6726074, z: 0.6726074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5006910
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183234}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &6136086
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183234}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2.16, y: 1.46}
+--- !u!95 &9561508
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183234}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aae99d7ed9261b54c97a72a16d0c161e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11417348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_attackLevel: 1
-  m_timeInvulnerabilityBase: 1
+  m_timeInvulnerabilityBase: 3
   currentBasicBullet: {fileID: 153258, guid: c4a4a62982fbd50458d7d0c24ac44c6e, type: 2}
   leftConeBullet: {fileID: 0}
   RightConeBullet: {fileID: 0}
@@ -92,7 +143,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1690453557
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ab22429a35b5bea47909bb29e7ea46a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e80884831b1ec545aadf9389c551274, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
