@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour {
 
     #region Singleton
     public static GameManager GameManagerInstance;
+    public GameObject pauseMenu;
 
     void Awake()
     {
@@ -24,8 +25,12 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if (Input.GetButtonDown(KeyCodes.Esc))
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 0;
+        }
+    }
 
     public void increaseScore(float amount)
     {

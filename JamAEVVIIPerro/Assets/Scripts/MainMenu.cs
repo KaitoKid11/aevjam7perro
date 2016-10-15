@@ -15,9 +15,7 @@ public class MainMenu : MonoBehaviour {
 
     public void loadScene()
     {
-        Debug.Log("kk");
         SceneManager.LoadScene("mainScene");
-        Debug.Log("kk2");
     }
     
     public void exitGame()
