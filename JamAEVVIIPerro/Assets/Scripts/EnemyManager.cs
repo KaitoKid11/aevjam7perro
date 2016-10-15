@@ -50,8 +50,10 @@ public class EnemyManager : MonoBehaviour
     // Tiempo de espera entre enemigos
     public float waitingTime = 1.0f;
 
-    // Prefab del enemigo
-    public GameObject enemy;
+    // Prefab de los enemigos
+    public GameObject enemyRoomba;
+    public GameObject enemyVacuum;
+    public GameObject enemyHunter;
     
     // Proyectiles
     public GameObject enemyBullet;
@@ -131,8 +133,12 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Genera un único enemigo en una posición aleatoria del mapa
-    void GenerateOneEnemy(MovementType movementType, AttackType attackType = AttackType.Shoot)
+    void GenerateOneEnemy(GameObject enemy, MovementType movementType, AttackType attackType = AttackType.Shoot)
     {
+        // Tipo de enemigo
+        if (enemy == null)
+            enemy = enemyVacuum;
+
         // Tipo de movimiento del enemigo
         if (movementType == null)
             movementType = GetMovementType();
@@ -148,6 +154,9 @@ public class EnemyManager : MonoBehaviour
     // Genera una oleada de tres enemigos en paralelo o en línea
     void GenerateWaveThreeEnemies(MovementType movementType, AttackType attackType, bool line = false)
     {
+        // Tipo de enemigo
+        GameObject enemy = GetEnemyFromAttackType(attackType);
+
         // Posición de cada enemigo
         Vector3[] enemiesPosition = new Vector3[3];
 
@@ -178,6 +187,9 @@ public class EnemyManager : MonoBehaviour
     // Genera una oleada de cinco enemigos en cuña
     void GenerateWaveCone(MovementType movementType, AttackType attackType)
     {
+        // Tipo de enemigo
+        GameObject enemy = GetEnemyFromAttackType(attackType);
+
         float xCenterPosition = GetCenterPosition_X();
         float xRndDistance = Random.Range(X_MIN_DIST, GetHalfDistance_X() / 2);
 
@@ -191,6 +203,9 @@ public class EnemyManager : MonoBehaviour
     // Genera una oleada de cinco enemigos en escalera
     void GenerateWaveStairs(MovementType movementType, AttackType attackType, bool startingLeft)
     {
+        // Tipo de enemigo
+        GameObject enemy = GetEnemyFromAttackType(attackType);
+
         float xCenterPosition = GetCenterPosition_X();
         float xRndDistance = Random.Range(X_MIN_DIST, GetHalfDistance_X() / 2);
 
@@ -213,8 +228,8 @@ public class EnemyManager : MonoBehaviour
         float xCenterPosition = GetCenterPosition_X();
         float xRndDistance = Random.Range(X_MIN_DIST, GetHalfDistance_X());
 
-        InstantiateEnemy(enemy, new Vector3(xCenterPosition - xRndDistance, Y_MAX, 0.0f), MovementType.Follow, AttackType.NoAttack);
-        InstantiateEnemy(enemy, new Vector3(xCenterPosition + xRndDistance, Y_MAX, 0.0f), MovementType.Follow, AttackType.NoAttack);
+        InstantiateEnemy(enemyHunter, new Vector3(xCenterPosition - xRndDistance, Y_MAX, 0.0f), MovementType.Follow, AttackType.NoAttack);
+        InstantiateEnemy(enemyHunter, new Vector3(xCenterPosition + xRndDistance, Y_MAX, 0.0f), MovementType.Follow, AttackType.NoAttack);
     }
 
     // Genera una oleada compuesta por tres enemigos rastreadores en línea
@@ -222,14 +237,17 @@ public class EnemyManager : MonoBehaviour
     {
         float xRndPosition = GetRandomPosition_X();
 
-        InstantiateEnemy(enemy, new Vector3(xRndPosition, Y_MAX, 0.0f), MovementType.Follow, AttackType.NoAttack);
-        InstantiateEnemy(enemy, new Vector3(xRndPosition, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Follow, AttackType.NoAttack);
-        InstantiateEnemy(enemy, new Vector3(xRndPosition, Y_MAX + Y_MIN_DIST * 2, 0.0f), MovementType.Follow, AttackType.NoAttack);
+        InstantiateEnemy(enemyHunter, new Vector3(xRndPosition, Y_MAX, 0.0f), MovementType.Follow, AttackType.NoAttack);
+        InstantiateEnemy(enemyHunter, new Vector3(xRndPosition, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Follow, AttackType.NoAttack);
+        InstantiateEnemy(enemyHunter, new Vector3(xRndPosition, Y_MAX + Y_MIN_DIST * 2, 0.0f), MovementType.Follow, AttackType.NoAttack);
     }
 
     // Genera una oleada compuesta por dos líneas de enemigos
     void GenerateWaveTwoSides(MovementType movementType, AttackType attackType)
     {
+        // Tipo de enemigo
+        GameObject enemy = GetEnemyFromAttackType(attackType);
+
         float xCenterPosition = GetCenterPosition_X();
         float xRndDistance = Random.Range(X_MIN_DIST, GetHalfDistance_X());
 
@@ -246,12 +264,12 @@ public class EnemyManager : MonoBehaviour
         float xCenterPosition = GetCenterPosition_X();
         float xRndDistance = Random.Range(X_MIN_DIST, GetHalfDistance_X() / 2);
 
-        InstantiateEnemy(enemy, new Vector3(xCenterPosition - xRndDistance * 2, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Straight, AttackType.Shoot);
-        InstantiateEnemy(enemy, new Vector3(xCenterPosition, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Straight, AttackType.Shoot);
-        InstantiateEnemy(enemy, new Vector3(xCenterPosition + xRndDistance * 2, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Straight, AttackType.Shoot);
+        InstantiateEnemy(enemyVacuum, new Vector3(xCenterPosition - xRndDistance * 2, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Straight, AttackType.Shoot);
+        InstantiateEnemy(enemyVacuum, new Vector3(xCenterPosition, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Straight, AttackType.Shoot);
+        InstantiateEnemy(enemyVacuum, new Vector3(xCenterPosition + xRndDistance * 2, Y_MAX + Y_MIN_DIST, 0.0f), MovementType.Straight, AttackType.Shoot);
         
-        InstantiateEnemy(enemy, new Vector3(xCenterPosition - xRndDistance, Y_MAX, 0.0f), MovementType.Sin, AttackType.NoAttack);
-        InstantiateEnemy(enemy, new Vector3(xCenterPosition + xRndDistance, Y_MAX, 0.0f), MovementType.Sin, AttackType.NoAttack);
+        InstantiateEnemy(enemyRoomba, new Vector3(xCenterPosition - xRndDistance, Y_MAX, 0.0f), MovementType.Sin, AttackType.NoAttack);
+        InstantiateEnemy(enemyRoomba, new Vector3(xCenterPosition + xRndDistance, Y_MAX, 0.0f), MovementType.Sin, AttackType.NoAttack);
     }
 
     // Instanciación de un enemigo concreto en función de los valores recibidos
@@ -296,6 +314,18 @@ public class EnemyManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    // Devuelve el tipo de enemigo en función del tipo de ataque
+    GameObject GetEnemyFromAttackType(AttackType attackType)
+    {
+        switch (attackType)
+        {
+            case AttackType.Shoot:
+                return enemyVacuum;
+            default:
+                return enemyRoomba;
         }
     }
 

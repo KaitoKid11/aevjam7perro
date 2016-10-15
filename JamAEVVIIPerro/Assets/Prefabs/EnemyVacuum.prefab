@@ -14,7 +14,7 @@ GameObject:
   - 58: {fileID: 5856798}
   - 114: {fileID: 11410404}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyVacuum
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  enemyScore: 100
+  enemyScore: 10
 --- !u!212 &21219692
 SpriteRenderer:
   m_ObjectHideFlags: 1

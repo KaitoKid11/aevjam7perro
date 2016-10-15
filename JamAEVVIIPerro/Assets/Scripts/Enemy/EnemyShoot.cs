@@ -3,7 +3,6 @@ using System.Collections;
 
 public class EnemyShoot : MonoBehaviour {
 
-    private bool m_invulnerability = false;
     private GameObject enemyBullet;
 
     public GameObject EnemyBullet
@@ -12,7 +11,9 @@ public class EnemyShoot : MonoBehaviour {
         set { enemyBullet = value; }
     }
 
-    public float m_shootingCooldown = 1f;
+    [Header("Bullets")]
+    public int numBullets = 3;
+    public float shootingCooldown = 1.5f;
 
     void Start()
     {
@@ -29,9 +30,13 @@ public class EnemyShoot : MonoBehaviour {
         while (true)
         {
             // Waiting...
-            yield return new WaitForSeconds(m_shootingCooldown);
+            yield return new WaitForSeconds(shootingCooldown);
 
-            // Instantiating bullet...
+            // Instantiating bullets...
+            Instantiate(EnemyBullet, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(EnemyBullet, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
             Instantiate(EnemyBullet, transform.position, Quaternion.identity);
         }
     }
