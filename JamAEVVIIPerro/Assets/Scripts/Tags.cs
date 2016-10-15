@@ -5,6 +5,7 @@ public static class Tags {
 
     public static string Bloque = "Bloque";
     public static string Mapa = "Mapa";
+    public static string Intro = "Intro";
 
     public static string NameSpawn = "Spawn";
     public static string NameDelete = "Delete";

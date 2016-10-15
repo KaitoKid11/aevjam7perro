@@ -9,6 +9,11 @@ public class Detection : MonoBehaviour {
         {
             transform.parent.transform.parent.GetComponent<SpawnBlock>().SpawnBlockUnit(this.transform);
         }
+
+        if (other.tag == Tags.Intro && this.name == Tags.NameDelete)
+        {
+            transform.parent.transform.parent.GetComponent<SpawnBlock>().DeleteBlockUnit(other);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
