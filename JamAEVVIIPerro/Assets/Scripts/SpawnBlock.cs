@@ -12,10 +12,28 @@ public class SpawnBlock : MonoBehaviour {
 	void Start () {
         for (int i = 1; i < 8; ++i)
         {
-            int sprite = Random.Range(0, spritesBasicos.Length);
-            bloque.GetComponent<SpriteRenderer>().sprite = spritesBasicos[sprite];
-            Instantiate(bloque, transform.FindChild("Building" + i + "/Spawn").transform.position, Quaternion.identity);
-            lastUsed[i-1] = sprite; 
+            if(i != 1 && i != 7)
+            {
+                if(lastUsed[i-1] == /*Valor de carretera o río en giro*/)
+                {
+                    //COLOCAR LOS CUADROS CONTIGUOS A CARRETERA O RÍO en giro
+                }
+                else
+                {
+                    //SOLO COLOCAR LOS QUE QUEREMOS EN LOS BORDES
+                    int sprite = Random.Range(0, spritesBasicos.Length);
+                    bloque.GetComponent<SpriteRenderer>().sprite = spritesBasicos[sprite];
+                    Instantiate(bloque, transform.FindChild("Building" + i + "/Spawn").transform.position, Quaternion.identity);
+                    lastUsed[i - 1] = sprite;
+                }
+            }
+            else
+            { 
+                int sprite = Random.Range(0, spritesBasicos.Length);
+                bloque.GetComponent<SpriteRenderer>().sprite = spritesBasicos[sprite];
+                Instantiate(bloque, transform.FindChild("Building" + i + "/Spawn").transform.position, Quaternion.identity);
+                lastUsed[i-1] = sprite;
+            }
         }
 	}
 	
@@ -30,6 +48,25 @@ public class SpawnBlock : MonoBehaviour {
             bloque.GetComponent<SpriteRenderer>().sprite = spritesLargos[0];
             Instantiate(bloque, spawn.position, Quaternion.identity);
             lastUsed[index] = 0;
+        }
+        else if(lastUsed[index] == /*CARRETERA O RÍO*/)
+        {
+            /*PUEDE SEGUIR RECTO O GIRAR*/
+            if(/*GIRAR*/)
+            {
+                if(index == 0)
+                {
+                    /*SOLO PUEDE GIRAR A DERECHA*/
+                }
+                else if(index == 6)
+                {
+                    /*SOLO PUEDE GIRAR A IZQUIERDA*/
+                }
+                else
+                {
+                    /*PUEDE GIRAR A AMBOS LADOS*/
+                }
+            }
         }
         else
         {
