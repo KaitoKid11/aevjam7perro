@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fbf8a2f53e33542a822afd1f08c905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_attackLevel: 0
+  m_attackLevel: 1
   m_timeInvulnerabilityBase: 1
   currentBasicBullet: {fileID: 153258, guid: c4a4a62982fbd50458d7d0c24ac44c6e, type: 2}
   leftConeBullet: {fileID: 0}
