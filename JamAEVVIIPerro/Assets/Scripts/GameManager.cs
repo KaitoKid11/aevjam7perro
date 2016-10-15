@@ -15,12 +15,13 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     public float score;
-    //public int lifes;
+    public int lifes;
 
 	// Use this for initialization
 	void Start () {
         score = 0;
-        //lifes = 3;
+        lifes = 3;
+        GUIManager.GUIManagerInstance.setInitialValues(lifes, score);
 	}
 	
 	// Update is called once per frame
@@ -38,9 +39,18 @@ public class GameManager : MonoBehaviour {
         GUIManager.GUIManagerInstance.updateScoreUI(score);
     }
 
-    public void updateHP(float amount)
+    public void updateHP(bool dmg)
     {
-        GUIManager.GUIManagerInstance.updateHealthUI(amount);
+        if (dmg)
+        {
+            --lifes;
+            GUIManager.GUIManagerInstance.updateHealthUI(lifes);
+        }
+        else 
+        {
+            ++lifes;
+            GUIManager.GUIManagerInstance.updateHealthUI(lifes);
+        }
     }
 
     public void playerDead()

@@ -17,16 +17,19 @@ public class GUIManager : MonoBehaviour {
     public Text healthText;
     public Text scoreText;
 
-
-	public void updateHealthUI(float newHealth)
+    public void updateHealthUI(int lifes)
     {
-        healthText.text = "" + newHealth;
+        healthText.text = "" + lifes;
     }
-
 
     public void updateScoreUI(float score)
     {
         scoreText.text = "" + score;
     }
 
+    public void setInitialValues(int lifes, float score)
+    {
+        healthText.text = "" + lifes;
+        scoreText.text = "" + score;
+    }
 }
