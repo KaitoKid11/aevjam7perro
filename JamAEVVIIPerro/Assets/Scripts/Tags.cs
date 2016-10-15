@@ -7,6 +7,7 @@ public static class Tags {
     public static string Mapa = "Mapa";
     public static string Intro = "Intro";
     public static string EnemyBullet = "EnemyBullet";
+    public static string PlayerBullet = "PlayerBullet";
     public static string Enemy = "Enemy";
     public static string LifeUp = "LifeUp";
     public static string PowerUp = "PowerUp";

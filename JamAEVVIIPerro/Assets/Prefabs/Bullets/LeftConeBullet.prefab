@@ -26,9 +26,10 @@ GameObject:
   - 4: {fileID: 410032}
   - 114: {fileID: 11493676}
   - 114: {fileID: 11452916}
+  - 61: {fileID: 6121622}
   m_Layer: 0
   m_Name: LeftConeBullet
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.22, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -60,6 +61,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 410032}
   m_RootOrder: 0
+--- !u!61 &6121622
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155512}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.021601915, y: 0.0032983422}
+  serializedVersion: 2
+  m_Size: {x: 0.27634162, y: 0.45436537}
 --- !u!114 &11452916
 MonoBehaviour:
   m_ObjectHideFlags: 1
