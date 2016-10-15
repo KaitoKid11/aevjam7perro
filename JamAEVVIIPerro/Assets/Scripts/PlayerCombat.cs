@@ -23,7 +23,7 @@ public class PlayerCombat : MonoBehaviour {
 	void Update () {
 
         //Actualmente la invulnerabilidad es solo para cuando has muerto ergo limita las acciones del player.
-        if (Input.GetButton(KeyCodes.Fire1) && m_timeSinceLastAttack < 0 && !m_invulnerability)
+        if (Input.GetButton(KeyCodes.Fire1) && m_timeSinceLastAttack < 0 && !playerHasRevived)
         {
             shoot(m_attackLevel);
         }
