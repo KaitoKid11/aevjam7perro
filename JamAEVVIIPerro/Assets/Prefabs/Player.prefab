@@ -12,8 +12,8 @@ GameObject:
   - 114: {fileID: 11417348}
   - 114: {fileID: 11418390}
   - 50: {fileID: 5006910}
-  - 61: {fileID: 6136086}
   - 95: {fileID: 9561508}
+  - 58: {fileID: 5861304}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: -0.57, y: -4.05, z: 0}
   m_LocalScale: {x: 0.6726072, y: 0.6726074, z: 0.6726074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -51,8 +51,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6136086
-BoxCollider2D:
+--- !u!58 &5861304
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -62,9 +62,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03, y: 0.36}
   serializedVersion: 2
-  m_Size: {x: 2.16, y: 1.46}
+  m_Radius: 0.34946758
 --- !u!95 &9561508
 Animator:
   serializedVersion: 3
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_attackLevel: 1
   m_timeInvulnerabilityBase: 3
   currentBasicBullet: {fileID: 153258, guid: c4a4a62982fbd50458d7d0c24ac44c6e, type: 2}
-  leftConeBullet: {fileID: 0}
-  RightConeBullet: {fileID: 0}
+  leftConeBullet: {fileID: 155512, guid: b6686c1f9ae47164693f90612080a191, type: 2}
+  RightConeBullet: {fileID: 110838, guid: 002071bfd15c4c245881ca7fafcb0d47, type: 2}
   m_shootingCooldown: 0.35
   maxLevel: 3
 --- !u!212 &21262334

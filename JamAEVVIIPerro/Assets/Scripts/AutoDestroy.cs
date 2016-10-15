@@ -9,5 +9,13 @@ public class AutoDestroy : MonoBehaviour {
 	void Start () {
         Destroy(gameObject, secToDestroy);
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == Tags.Enemy && this.tag != Tags.EnemyBullet)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 	
 }
