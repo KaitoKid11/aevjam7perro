@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 423106}
   - 114: {fileID: 11491748}
   m_Layer: 0
-  m_Name: EnemyGenerator
+  m_Name: EnemyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,6 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitingTime: 1
   enemy: {fileID: 117212, guid: 4b036b10c225e5f469cd7136b6e82c9c, type: 2}
+  enemyBullet: {fileID: 153258, guid: 44d68f05f3d294748996e504765354ae, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
