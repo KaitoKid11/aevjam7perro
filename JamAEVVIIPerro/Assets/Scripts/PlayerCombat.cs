@@ -18,7 +18,8 @@ public class PlayerCombat : MonoBehaviour {
     public float m_shootingCooldown = 1f;
     public int maxLevel = 3;
 
-	// Update is called once per frame
+    private bool playerHasRevived = true;
+
 	void Update () {
 
         //Actualmente la invulnerabilidad es solo para cuando has muerto ergo limita las acciones del player.
@@ -33,6 +34,12 @@ public class PlayerCombat : MonoBehaviour {
         if (m_invulnerability && m_timeInvulnerability < 0)
         {
             m_invulnerability = false;
+        }
+        if (playerHasRevived)
+        {
+            playerHasRevived = false;
+            GetComponent<Animator>().SetTrigger("PlayerRevive");
+            transform.position = new Vector3(0f, -4f, 0f);
             this.GetComponent<PlayerMovement>().dead(false);
         }
 	}
@@ -42,6 +49,9 @@ public class PlayerCombat : MonoBehaviour {
         //Empezar corrutina explosión
 
         //Valor a true indica muerte ergo volver a 1, bloquear movimiento y encender invulnerabilidad
+
+
+        GetComponent<Animator>().SetTrigger("PlayerDeath");
         m_invulnerability = true;
         m_timeInvulnerability = m_timeInvulnerabilityBase;
         this.GetComponent<PlayerMovement>().dead(true);
@@ -63,6 +73,11 @@ public class PlayerCombat : MonoBehaviour {
                 ++m_attackLevel;
             else
                 m_attackLevel = maxLevel;
+    }
+
+    public void revivingAnimationEnded()
+    {
+        playerHasRevived = true;
     }
 
     public void death()
@@ -101,7 +116,7 @@ public class PlayerCombat : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!m_invulnerability) { 
-            if (other.tag == Tags.BalaEnemiga || other.tag == Tags.Enemigo)
+            if (other.tag == Tags.EnemyBullet || other.tag == Tags.Enemy)
             {
                 receiveDamage();
             }
