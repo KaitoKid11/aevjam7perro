@@ -7,7 +7,6 @@ public class GUIManager : MonoBehaviour {
     #region Singleton
     public static GUIManager GUIManagerInstance;
 
-
     void Awake()
     {
         if (GUIManagerInstance == null)

@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11447936}
   m_Layer: 0
   m_Name: Intro
-  m_TagString: Untagged
+  m_TagString: Intro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1826518965
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 80f5f19edc0042f42bddcc16d4da7689, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

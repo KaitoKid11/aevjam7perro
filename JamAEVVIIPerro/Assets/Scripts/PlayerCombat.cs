@@ -28,13 +28,14 @@ public class PlayerCombat : MonoBehaviour {
     public void receiveDamage(float amount)
     {
         currentHealth -= amount;
-        
-        if(currentHealth <= 0)
+
+        if (currentHealth != 0)
+            GameManager.GameManagerInstance.updateHP(currentHealth);
+        else
         {
             currentHealth = 0f;
             death();
         }
-        GUIManager.GUIManagerInstance.updateHealthUI(amount);
 
     }
 
@@ -45,14 +46,13 @@ public class PlayerCombat : MonoBehaviour {
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
 
-        GUIManager.GUIManagerInstance.updateHealthUI(amount);
-
-
+        GameManager.GameManagerInstance.updateHP(currentHealth);
     }
 
 
     public void death()
     {
-        Debug.Log("has muerto");
+        //Espera hasta que la animación de destrucción acabe - Introducir aquí
+        GameManager.GameManagerInstance.playerDead();
     }
 }
