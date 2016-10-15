@@ -11,9 +11,6 @@ public class EnemyMoveSin : MonoBehaviour {
 	}
 	
 	void Update () {
-        Vector3 enemyPosition = transform.position;
-        enemyPosition.x += Mathf.Sin(Time.time) * Time.deltaTime * sinCurveFactor; 
-        enemyPosition.y -= speed * Time.deltaTime;
-        transform.position = enemyPosition;
+        transform.Translate(Mathf.Sin(Time.time) * sinCurveFactor * Time.deltaTime, -speed * Time.deltaTime, 0.0f);
 	}
 }

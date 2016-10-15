@@ -10,8 +10,6 @@ public class EnemyMoveStraight : MonoBehaviour {
 	}
 	
 	void Update () {
-        Vector3 enemyPosition = transform.position;
-        enemyPosition.y -= speed * Time.deltaTime;
-        transform.position = enemyPosition;
+        transform.Translate(0.0f, - speed * Time.deltaTime, 0.0f);
 	}
 }
