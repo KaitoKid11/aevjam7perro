@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic; 
-using System.Runtime.Serialization.Formatters.Binary; 
+using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
 public class PersistentScore : MonoBehaviour {
@@ -17,14 +17,13 @@ public class PersistentScore : MonoBehaviour {
     #endregion
 
     public float finalScore;
-    List<Score> scores;
+    
+    [HideInInspector]
+    public List<Score> scores;
 
 	// Use this for initialization
 	void Start () {
         DontDestroyOnLoad(transform.gameObject);
-
-        //Load();
-        //setFinalScore(10f);
 	}
 
     public void setFinalScore(float score)
@@ -62,7 +61,7 @@ public class PersistentScore : MonoBehaviour {
         return finalScore;
     }
 
-    private void Save()
+    public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
@@ -87,17 +86,34 @@ public class PersistentScore : MonoBehaviour {
             scores = data.scores;
         }
     }
+
+    public void ResetScores()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
+
+        PlayerScores data = new PlayerScores();
+
+        scores = new List<Score>();
+
+        data.scores = scores;
+
+        bf.Serialize(file, data);
+        file.Close();
+    }
+
+
     
 }
 
 [System.Serializable]
-class PlayerScores
+public class PlayerScores
 {
     public List<Score> scores;
 }
 
 [System.Serializable]
-class Score
+public class Score
 {
     public float score;
     public string name;

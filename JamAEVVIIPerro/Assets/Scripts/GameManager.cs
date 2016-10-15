@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour {
         score = 0;
         lifes = 3;
         GUIManager.GUIManagerInstance.setInitialValues(lifes, score);
+        PersistentScore.PersistentScoreInstance.Load();
+        PersistentScore.PersistentScoreInstance.ResetScores();
+        GUIManager.GUIManagerInstance.updateHighScore(PersistentScore.PersistentScoreInstance.scores);
 	}
 	
 	// Update is called once per frame
