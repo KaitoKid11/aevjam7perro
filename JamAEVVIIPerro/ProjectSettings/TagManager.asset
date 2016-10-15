@@ -9,10 +9,11 @@ TagManager:
   - Intro
   - EnemyBullet
   - Enemy
-  - LifeUp`
+  - LifeUp
   - PowerUp
   - Spawn
   - Delete
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
