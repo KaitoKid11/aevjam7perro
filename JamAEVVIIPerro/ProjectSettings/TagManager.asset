@@ -42,8 +42,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Interface
-    uniqueID: 873830811
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1826518965
+    locked: 0
+  - name: Drop
+    uniqueID: 215181309
+    locked: 0
+  - name: EnemyProjectile
+    uniqueID: 1210759741
+    locked: 0
+  - name: Enemy
+    uniqueID: 2969493179
     locked: 0
   - name: PlayerProjectile
     uniqueID: 916272313
@@ -51,18 +63,9 @@ TagManager:
   - name: Player
     uniqueID: 2604513739
     locked: 0
-  - name: EnemyProjectile
-    uniqueID: 1210759741
+  - name: Interface
+    uniqueID: 873830811
     locked: 0
-  - name: Drop
-    uniqueID: 215181309
-    locked: 0
-  - name: Enemy
-    uniqueID: 2969493179
-    locked: 0
-  - name: Background
-    uniqueID: 1826518965
-    locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Borders
+    uniqueID: 1235759823
     locked: 0
