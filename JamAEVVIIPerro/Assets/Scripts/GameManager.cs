@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown(KeyCodes.Esc))
         {
-            pauseMenu.SetActive(false);
+            pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
     }
