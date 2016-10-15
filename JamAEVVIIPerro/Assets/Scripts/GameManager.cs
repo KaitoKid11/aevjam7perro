@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -47,6 +48,10 @@ public class GameManager : MonoBehaviour {
         if (dmg)
         {
             --lifes;
+            if(lifes == 0)
+            {
+                playerDead();
+            }
             GUIManager.GUIManagerInstance.updateHealthUI(lifes);
         }
         else 
@@ -60,6 +65,6 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("FUCKING DEAD BIATCH");
         PersistentScore.PersistentScoreInstance.setFinalScore(score);
-        //Application.LoadLevel("Puntuaciones");
+        SceneManager.LoadScene("MainMenu");
     }
 }
