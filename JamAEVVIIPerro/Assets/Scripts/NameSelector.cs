@@ -11,6 +11,8 @@ public class NameSelector : MonoBehaviour {
 
     public Text doneText;
 
+    public Color unselectedColor;
+    public Color selectedColor;
     
     private string currentFirstLetter;
     private string currentSecondLetter;
@@ -178,44 +180,40 @@ public class NameSelector : MonoBehaviour {
                     currentSelectedSpace--;
 
                 highlightLetter();
-
             }
-        }
-       
+        }       
 	}
 
     private void highlightLetter()
     {
-        //Debug.Log("HIGHLIGHT");
+        Debug.Log("highlight");
         if(currentSelectedSpace == 0)
         {
-            //Debug.Log("First");
-
-            //secondLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
-            thirdLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
-            firstLetterText.GetComponent<Animator>().SetTrigger("ToHighlight");
+            firstLetterText.color = selectedColor;
+            secondLetterText.color = unselectedColor;
+            thirdLetterText.color = unselectedColor;
+            doneText.color = unselectedColor;
         }
         else if (currentSelectedSpace == 1)
         {
-            //Debug.Log("Scond");
-            firstLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
-            //thirdLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
-            //secondLetterText.GetComponent<Animator>().SetTrigger("ToHighlight");
+            firstLetterText.color = unselectedColor;
+            secondLetterText.color = selectedColor;
+            thirdLetterText.color = unselectedColor;
+            doneText.color = unselectedColor;
         }
         else if (currentSelectedSpace == 2)
         {
-            //Debug.Log("third");
-            //firstLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
-            //secondLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
-            thirdLetterText.GetComponent<Animator>().SetTrigger("ToHighlight");
+            firstLetterText.color = unselectedColor;
+            secondLetterText.color = unselectedColor;
+            thirdLetterText.color = selectedColor;
+            doneText.color = unselectedColor;
         }
         else if (currentSelectedSpace == 3)
         {
-            //Debug.Log("Done");
-            //firstLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
-            //secondLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
-            //thirdLetterText.GetComponent<Animator>().SetTrigger("ToHighlight");
-            doneText.GetComponent<Animator>().SetTrigger("ToHighlight");
+            firstLetterText.color = unselectedColor;
+            secondLetterText.color = unselectedColor;
+            thirdLetterText.color = unselectedColor;
+            doneText.color = selectedColor;
         }
     }
 }
