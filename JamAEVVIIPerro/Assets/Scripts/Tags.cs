@@ -12,7 +12,8 @@ public static class Tags {
     public static string Enemy = "Enemy";
     public static string LifeUp = "LifeUp";
     public static string PowerUp = "PowerUp";
-
+    public static string PauseMenu = "PauseMenu";
+    
     public static string NameSpawn = "Spawn";
     public static string NameDelete = "Delete";
 }
