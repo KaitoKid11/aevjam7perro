@@ -17,6 +17,9 @@ public class EnemyShoot : MonoBehaviour {
 
     void Start()
     {
+        if (EnemyBullet == null)
+            EnemyBullet = EnemyManager.enemyManagerInstance.enemyBullet;
+
         StartCoroutine(Shooting());
     }
 
@@ -34,9 +37,9 @@ public class EnemyShoot : MonoBehaviour {
 
             // Instantiating bullets...
             Instantiate(EnemyBullet, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             Instantiate(EnemyBullet, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             Instantiate(EnemyBullet, transform.position, Quaternion.identity);
         }
     }

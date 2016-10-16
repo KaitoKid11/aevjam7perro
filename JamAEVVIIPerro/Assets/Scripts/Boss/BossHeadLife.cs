@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyLife : MonoBehaviour {
+public class BossHeadLife : MonoBehaviour {
 
-    // Salud del enemigo
-    public float health = 1.0f;
-    public float enemyScore = 100f;
+    // Salud
+    public float health = 10.0f;
 
 	void Start ()
     {
@@ -29,15 +28,17 @@ public class EnemyLife : MonoBehaviour {
     // Llamada cuando el enemigo recibe daño
     void Damage(float damage)
     {
+        if (transform.parent.GetComponent<BossLogic>().Invulnerable == true)
+            return;
+
         // Recibe el daño
         health -= damage;
 
         // Comprueba
         if (health <= 0.0f)
         {
-            DropManager.DropManagerInstance.basicEnemyDrop(this.transform.position);
-            GameManager.GameManagerInstance.increaseScore(enemyScore);
             Destroy(this.gameObject);
+            transform.parent.GetComponent<BossLogic>().HeadDestroyed();
         }
     }
 }

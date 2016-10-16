@@ -38,14 +38,20 @@ public class EnemyManager : MonoBehaviour
 
     // Márgenes del mapa de juego
     private float X_MIN = -7.0f;
-    private float X_MAX = 7.0f;
-    
-    private float Y_MIN = -8.0f;
-    private float Y_MAX = 8.0f;
+    private float X_MAX = 6.56f;
+
+    private float Y_MIN = -4.64f;
+    private float Y_MAX = 4.42f;
 
     // Distancia mínima entre enemigos
     private float X_MIN_DIST = 1.0f;
     private float Y_MIN_DIST = 1.0f;
+
+    // Jefe especial
+    private bool bossStage = false;
+
+    private int waves = 0;
+    public int numWavesBetweenBosses = 3;
 
     // Tiempo de espera entre enemigos
     public float waitingTime = 1.0f;
@@ -54,6 +60,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject enemyRoomba;
     public GameObject enemyVacuum;
     public GameObject enemyHunter;
+    public GameObject boss;
     
     // Proyectiles
     public GameObject enemyBullet;
@@ -85,14 +92,18 @@ public class EnemyManager : MonoBehaviour
             // Waiting...
             yield return new WaitForSeconds(waitingTime);
 
-            // Instantiating enemies...
-            GenerateNextWave();
+            if (!bossStage)
+            {
+                // Instantiating enemies...
+                GenerateNextWave();
+            }
         }
     }
 
     // Next wave random generation
     void GenerateNextWave()
     {
+        // Nueva oleada
         WavePattern nextWave = (WavePattern)Random.Range(0, numWavePatters);
 
         switch(nextWave)
@@ -129,6 +140,14 @@ public class EnemyManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+
+        // Número de oleadas entre jefe y jefe
+        if (++waves >= numWavesBetweenBosses)
+        {
+            bossStage = true;
+            waves = 0;
+            SpawnBoss();
         }
     }
 
@@ -273,7 +292,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Instanciación de un enemigo concreto en función de los valores recibidos
-    void InstantiateEnemy(GameObject enemyPrefab, Vector3 enemyPosition,
+    private void InstantiateEnemy(GameObject enemyPrefab, Vector3 enemyPosition,
         MovementType movementType, AttackType attackType)
     {
         // Instancia
@@ -285,7 +304,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Añade el componente de movimiento a un enemigo
-    void SetMovement(GameObject enemyInstance, MovementType movementType)
+    private void SetMovement(GameObject enemyInstance, MovementType movementType)
     {
         switch(movementType)
         {
@@ -304,7 +323,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Añade el componente de ataque a un enemigo
-    void SetAttack(GameObject enemyInstance, AttackType attackType)
+    private void SetAttack(GameObject enemyInstance, AttackType attackType)
     {
         switch (attackType)
         {
@@ -318,7 +337,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Devuelve el tipo de enemigo en función del tipo de ataque
-    GameObject GetEnemyFromAttackType(AttackType attackType)
+    private GameObject GetEnemyFromAttackType(AttackType attackType)
     {
         switch (attackType)
         {
@@ -330,26 +349,26 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Devuelve la distancia de medio mapa en el eje X
-    float GetHalfDistance_X()
+    private float GetHalfDistance_X()
     {
         return (X_MAX - X_MIN) / 2;
     }
 
     // Devuelve la posición central del mapa en el eje X
-    float GetCenterPosition_X()
+    private float GetCenterPosition_X()
     {
         return X_MIN + GetHalfDistance_X();
     }
 
     // Devuelve una posición aleatoria del mapa en el eje X
-    float GetRandomPosition_X()
+    private float GetRandomPosition_X()
     {
         return Random.Range(X_MIN, X_MAX);
     }
 
     // Tipo de movimiento para nuevos enemigos en función de la probabilidad
     // especificada para cada uno de ellos
-    MovementType GetMovementType(float straightPercentage = 0.75f, float sinPercentage = 0.25f)
+    private MovementType GetMovementType(float straightPercentage = 0.75f, float sinPercentage = 0.25f)
     {
         float rnd = Random.Range(0.0f, 1.0f);
 
@@ -357,5 +376,17 @@ public class EnemyManager : MonoBehaviour
             return MovementType.Straight;
         else
             return MovementType.Sin;
+    }
+
+    // Inicio de la etapa del jefe
+    private void SpawnBoss()
+    {
+        Instantiate(boss, new Vector3(GetCenterPosition_X(), Y_MAX + 2.0f, 0.0f), Quaternion.identity);
+    }
+
+    // Fin de la etapa del jefe
+    public void BossDefeated()
+    {
+        bossStage = false;
     }
 }

@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 6
-  damage: 10
+  damage: 1
   left: 1
 --- !u!114 &11493676
 MonoBehaviour:
