@@ -28,20 +28,20 @@ public class PersistentScore : MonoBehaviour {
 
     public void setFinalScore(float score,string name)
     {
+        Load();
         finalScore = score;
         
         Score newScore = new Score();
         newScore.score = score;
         newScore.name = name;
 
-        //if (scores == null)
-        //    scores = new List<Score>();
+        if (scores == null)
+            scores = new List<Score>();
 
         scores.Add(newScore);
         scores.Sort(CompareScoresByScore);
-        Save();
-        Load();
         drawScores();
+        Save();
     }
 
     private static int CompareScoresByScore(Score score1, Score score2)
