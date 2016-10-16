@@ -14,8 +14,9 @@ public class DropManager : MonoBehaviour {
     #endregion
 
     [Header("Drop percentage")]
-    public int lifeDropPercentage = 10;
+    public int lifeDropPercentage = 1;
     public int shootLevelPercentage = 5;
+    public int grandmaPercentage = 1;
 
     [Header("Seconds to destroy drops")]
     public int timeToDestroy = 5;
@@ -23,6 +24,7 @@ public class DropManager : MonoBehaviour {
     [Header("Drops")]
     public GameObject lifeDrop;
     public GameObject shootLevelDrop;
+    public GameObject grandmaDrop;
 
     public void basicEnemyDrop(Vector3 position)
     {
@@ -33,6 +35,10 @@ public class DropManager : MonoBehaviour {
         else if (Random.Range(0, 100) < shootLevelPercentage)
         {
             GameObject newDropInstance = (GameObject)Instantiate(shootLevelDrop, position, Quaternion.identity);
+        }
+        else if (Random.Range(0, 100) < grandmaPercentage)
+        {
+            GameObject newDropInstance = (GameObject)Instantiate(grandmaDrop, position, Quaternion.identity);
         }
 
     }
