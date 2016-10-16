@@ -15,16 +15,18 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     public float score;
-    public int lifes;
+    public int lifes = 1;
     public GameObject pauseMenu;
+
+
+    public GameObject player;
 
     // Use this for initialization
     void Start () {
         score = 0;
-        lifes = 3;
         GUIManager.GUIManagerInstance.setInitialValues(lifes, score);
         PersistentScore.PersistentScoreInstance.Load();
-        PersistentScore.PersistentScoreInstance.ResetScores();
+        //PersistentScore.PersistentScoreInstance.ResetScores();
         GUIManager.GUIManagerInstance.updateHighScore(PersistentScore.PersistentScoreInstance.scores);
 
         this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getSoundTrack();
@@ -67,8 +69,10 @@ public class GameManager : MonoBehaviour {
 
     public void playerDead()
     {
-        Debug.Log("FUCKING DEAD BIATCH");
-        PersistentScore.PersistentScoreInstance.setFinalScore(score);
-        SceneManager.LoadScene("MainMenu");
+        //Debug.Log("FUCKING DEAD BIATCH");
+        GUIManager.GUIManagerInstance.playerDead();
+        player.GetComponent<CircleCollider2D>().enabled = false;
+        //PersistentScore.PersistentScoreInstance.setFinalScore(score);
+        //SceneManager.LoadScene("MainMenu");
     }
 }

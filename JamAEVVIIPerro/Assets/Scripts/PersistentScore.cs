@@ -26,21 +26,25 @@ public class PersistentScore : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
 	}
 
-    public void setFinalScore(float score)
+    public void setFinalScore(float score,string name)
     {
+        Load();
         finalScore = score;
         
         Score newScore = new Score();
         newScore.score = score;
-        newScore.name = "fff";
+        newScore.name = name;
 
-        if(scores == null)
+        if (scores == null)
+        {
             scores = new List<Score>();
+            Debug.Log("score vacio");
+        }
 
         scores.Add(newScore);
         scores.Sort(CompareScoresByScore);
+        //drawScores();
         Save();
-        drawScores();
     }
 
     private static int CompareScoresByScore(Score score1, Score score2)
@@ -78,12 +82,16 @@ public class PersistentScore : MonoBehaviour {
     {
         if(File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
         {
+            //Debug.Log("file exist");
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat",FileMode.Open);
             PlayerScores data = (PlayerScores)bf.Deserialize(file);
-            file.Close();
+            //print(Application.persistentDataPath);
 
             scores = data.scores;
+
+            file.Close();
+
         }
     }
 

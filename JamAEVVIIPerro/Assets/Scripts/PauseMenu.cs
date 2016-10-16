@@ -20,7 +20,6 @@ public class PauseMenu : MonoBehaviour {
     {
         if (Input.GetButtonDown(KeyCodes.Esc))
         {
-            Debug.Log("kk");
             transform.gameObject.SetActive(false);
             Time.timeScale = 1.0f;
         }

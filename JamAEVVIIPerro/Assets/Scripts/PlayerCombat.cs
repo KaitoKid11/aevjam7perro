@@ -18,12 +18,13 @@ public class PlayerCombat : MonoBehaviour {
     public float m_shootingCooldown = 1f;
     public int maxLevel = 3;
 
-    private bool playerHasRevived = true;
+    private bool playerHasRevived = false;
+    private bool dead = false;
 
 	void Update () {
 
         //Actualmente la invulnerabilidad es solo para cuando has muerto ergo limita las acciones del player.
-        if (Input.GetButton(KeyCodes.Fire1) && m_timeSinceLastAttack < 0 && !playerHasRevived)
+        if (Input.GetButton(KeyCodes.Fire1) && m_timeSinceLastAttack < 0 && !dead)
         {
             shoot(m_attackLevel);
         }
@@ -35,8 +36,9 @@ public class PlayerCombat : MonoBehaviour {
         {
             m_invulnerability = false;
         }
-        if (playerHasRevived)
+        if (playerHasRevived && GameManager.GameManagerInstance.lifes != 0)
         {
+            dead = false;
             playerHasRevived = false;
             GetComponent<Animator>().SetTrigger("PlayerRevive");
             transform.position = new Vector3(0f, -4f, 0f);
@@ -46,11 +48,12 @@ public class PlayerCombat : MonoBehaviour {
 
     public void receiveDamage()
     {
+
         //Empezar corrutina explosión
 
         //Valor a true indica muerte ergo volver a 1, bloquear movimiento y encender invulnerabilidad
 
-
+        dead = true;
         GetComponent<Animator>().SetTrigger("PlayerDeath");
         m_invulnerability = true;
         m_timeInvulnerability = m_timeInvulnerabilityBase;
@@ -83,6 +86,8 @@ public class PlayerCombat : MonoBehaviour {
     public void death()
     {
         //Espera hasta que la animación de destrucción acabe - Introducir aquí
+
+        GetComponent<CircleCollider2D>().enabled = false;
         GameManager.GameManagerInstance.playerDead();
     }
 
