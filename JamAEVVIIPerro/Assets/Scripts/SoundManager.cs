@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour {
     #endregion
 
     public AudioClip soundtrack;
+    public AudioClip explosion;
     public AudioClip[] playerShoot;
 
     // Use this for initialization
@@ -34,6 +35,11 @@ public class SoundManager : MonoBehaviour {
     public AudioClip getPlayerShoot()
     {
         return playerShoot[Random.Range(0,playerShoot.Length)];
+    }
+
+    public AudioClip getPlayerExplosion()
+    {
+        return explosion;
     }
 
 }

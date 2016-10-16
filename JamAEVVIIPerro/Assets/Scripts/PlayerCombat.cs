@@ -56,6 +56,8 @@ public class PlayerCombat : MonoBehaviour {
 
         //Valor a true indica muerte ergo volver a 1, bloquear movimiento y encender invulnerabilidad
 
+        this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerExplosion();
+        this.GetComponent<AudioSource>().Play();
         dead = true;
         GetComponent<Animator>().SetTrigger("PlayerDeath");
         m_invulnerability = true;
