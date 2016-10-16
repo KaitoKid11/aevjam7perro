@@ -27,7 +27,7 @@ public class EnemyLife : MonoBehaviour {
     }
 
     // Llamada cuando el enemigo recibe daño
-    void Damage(float damage)
+    public void Damage(float damage)
     {
         // Recibe el daño
         health -= damage;

@@ -73,6 +73,28 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void viejaUsed()
+    {
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag(Tags.Enemy);
+        GameObject[] balasEnemigas = GameObject.FindGameObjectsWithTag(Tags.EnemyBullet);
+        GameObject[] boss = GameObject.FindGameObjectsWithTag(Tags.Boss);
+
+
+        foreach (GameObject destroyable in balasEnemigas)
+        {
+            Destroy(destroyable);
+        }
+        foreach (GameObject destroyable in enemigos)
+        {
+            destroyable.GetComponent<EnemyLife>().Damage(5f);
+        } 
+        foreach (GameObject destroyable in boss)
+        {
+            //destroyable.GetComponent<BossHeadLife>().Damage(5f);
+        }
+        //Cambiar el valor de un atributo en el spawn de enemigos para bloquear el spawn de enemigos 2 segundos
+    }
+
     public void playerDead()
     {
         //Debug.Log("FUCKING DEAD BIATCH");

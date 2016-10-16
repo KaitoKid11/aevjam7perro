@@ -14,4 +14,5 @@ public class KeyCodes {
     public static string Submit = "Submit";
 
     public static string Fire1 = "Fire1";
+    public static string Fire2 = "Fire2";
 }
