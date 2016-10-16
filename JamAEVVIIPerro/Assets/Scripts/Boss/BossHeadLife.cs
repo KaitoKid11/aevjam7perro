@@ -35,6 +35,8 @@ public class BossHeadLife : MonoBehaviour {
 
         // Recibe el daño
         health -= damage;
+        GetComponent<SpriteRenderer>().color = Color.red;
+        StartCoroutine(restoreColor());
 
         // Comprueba
         if (health <= 0.0f)
@@ -42,5 +44,11 @@ public class BossHeadLife : MonoBehaviour {
             Destroy(this.gameObject);
             transform.parent.GetComponent<BossLogic>().HeadDestroyed();
         }
+    }
+
+    IEnumerator restoreColor()
+    {
+        yield return new WaitForSeconds(0.3f);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
