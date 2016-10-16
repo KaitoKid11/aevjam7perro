@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  lifes: 1
+  lifes: 3
   pauseMenu: {fileID: 0}
   player: {fileID: 0}
 --- !u!1001 &100100000
