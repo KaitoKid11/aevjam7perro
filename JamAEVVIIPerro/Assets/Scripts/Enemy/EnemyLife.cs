@@ -36,6 +36,9 @@ public class EnemyLife : MonoBehaviour {
 
         // Comprueba
         if (health <= 0.0f)
+        {
+            DropManager.DropManagerInstance.basicEnemyDrop(this.transform.position);
             Destroy(this.gameObject);
+        }
     }
 }
