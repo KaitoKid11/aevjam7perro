@@ -37,7 +37,23 @@ public class EnemyLife : MonoBehaviour {
         {
             DropManager.DropManagerInstance.basicEnemyDrop(this.transform.position);
             GameManager.GameManagerInstance.increaseScore(enemyScore);
-            Destroy(this.gameObject);
+
+            if(GetComponent<EnemyShoot>() != null)
+                GetComponent<EnemyShoot>().enabled = false;
+
+            GetComponent<Animator>().SetTrigger("Destroy");
+            GetComponent<CircleCollider2D>().enabled = false;
+
         }
     }
+
+    public void EnemyDestroyedAnimEnd()
+    {
+        Destroy(this.gameObject);
+        
+    }
 }
+
+
+
+  
