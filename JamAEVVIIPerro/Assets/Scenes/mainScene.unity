@@ -128,6 +128,14 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 66968632}
+    - target: {fileID: 11404692, guid: 06665d4e1f01f5f41a8cc0bbcbbca28a, type: 2}
+      propertyPath: lifes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241376, guid: 06665d4e1f01f5f41a8cc0bbcbbca28a, type: 2}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06665d4e1f01f5f41a8cc0bbcbbca28a, type: 2}
   m_IsPrefabParent: 0

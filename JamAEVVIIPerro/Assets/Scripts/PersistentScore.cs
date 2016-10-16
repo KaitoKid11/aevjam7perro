@@ -43,7 +43,6 @@ public class PersistentScore : MonoBehaviour {
 
         scores.Add(newScore);
         scores.Sort(CompareScoresByScore);
-        //drawScores();
         Save();
     }
 
