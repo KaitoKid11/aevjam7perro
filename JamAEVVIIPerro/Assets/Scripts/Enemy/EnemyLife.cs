@@ -44,6 +44,8 @@ public class EnemyLife : MonoBehaviour {
             GetComponent<Animator>().SetTrigger("Destroy");
             GetComponent<CircleCollider2D>().enabled = false;
 
+            this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getEnemyDestroyed();
+            this.GetComponent<AudioSource>().Play();
         }
     }
 
@@ -54,6 +56,3 @@ public class EnemyLife : MonoBehaviour {
     }
 }
 
-
-
-  

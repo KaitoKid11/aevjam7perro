@@ -191,7 +191,7 @@ public class NameSelector : MonoBehaviour {
 
     private void highlightLetter()
     {
-        Debug.Log("highlight");
+        //Debug.Log("highlight");
         if(currentSelectedSpace == 0)
         {
             firstLetterText.color = selectedColor;
