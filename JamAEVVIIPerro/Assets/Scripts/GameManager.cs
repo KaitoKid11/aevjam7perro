@@ -16,9 +16,11 @@ public class GameManager : MonoBehaviour {
 
     public float score;
     public int lifes = 1;
+    
+    [HideInInspector]
     public GameObject pauseMenu;
 
-
+    private GameObject pauseMenuContainer;
     public GameObject player;
 
     // Use this for initialization
@@ -31,6 +33,10 @@ public class GameManager : MonoBehaviour {
 
         this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getSoundTrack();
         this.GetComponent<AudioSource>().Play();
+
+        pauseMenuContainer = GameObject.FindGameObjectWithTag(Tags.PauseMenu);
+        pauseMenu = pauseMenuContainer.transform.Find("PauseMenu").gameObject;
+
 
     }
 	
