@@ -3,6 +3,11 @@ using System.Collections;
 
 public class ShootLevelDrop : MonoBehaviour {
 
+    void OnEnable()
+    {
+        StartCoroutine(autoDestroy());
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == Tags.Player)
@@ -12,4 +17,9 @@ public class ShootLevelDrop : MonoBehaviour {
         }
     }
 
+    IEnumerator autoDestroy()
+    {
+        yield return new WaitForSeconds(DropManager.DropManagerInstance.timeToDestroy);
+        Destroy(this);
+    }
 }
