@@ -1384,6 +1384,23 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 212f21803b276ca4181cd707d0787c4f, type: 3}
   - {fileID: 21300000, guid: 85000d929f5863f4e82cd8fe031e9029, type: 3}
   - {fileID: 21300000, guid: 5d08b3caa69078e418a92da5272aedb7, type: 3}
+  rioRecto:
+  - {fileID: 21300000, guid: 9adb58c623fcd584bb53de1029a92413, type: 3}
+  - {fileID: 21300000, guid: e2c97c6f6de95bb46954cfc4ee7fe0fc, type: 3}
+  - {fileID: 21300000, guid: d4a6ec6a9c92b934b9b629b4c01a82f6, type: 3}
+  - {fileID: 21300000, guid: d88e6a165a573ef43afed06190a30d1f, type: 3}
+  - {fileID: 21300000, guid: 099772e4bb326f6479702d0359dd3f3f, type: 3}
+  - {fileID: 21300000, guid: 53d3a5d274522964286e8302b3f10c15, type: 3}
+  - {fileID: 21300000, guid: 531548f1a89de60479a7e9a25b445bb7, type: 3}
+  - {fileID: 21300000, guid: 06004f43ed67e35469d58a6f1f025ae6, type: 3}
+  - {fileID: 21300000, guid: 793eff83e71fc89439dd49a6e4be0867, type: 3}
+  rioCurva:
+  - {fileID: 21300000, guid: 8a4ea52739d13774f92f84f1768366e1, type: 3}
+  - {fileID: 21300000, guid: 9f834995ba116d445b185111eb79868b, type: 3}
+  - {fileID: 21300000, guid: 7981f659886aebd4e8ae3bb71f379a39, type: 3}
+  - {fileID: 21300000, guid: ffd1b1adc4c38fd448084e559c44157d, type: 3}
+  - {fileID: 21300000, guid: c5ab09221ebbffa46970b92d5f9d3acf, type: 3}
+  - {fileID: 21300000, guid: 37b537f587da19c4fb84c4f4e3644119, type: 3}
   spritesLargos:
   - {fileID: 21300000, guid: 1b985be9caadc904c93dcbf34a63e890, type: 3}
 --- !u!114 &11462108
