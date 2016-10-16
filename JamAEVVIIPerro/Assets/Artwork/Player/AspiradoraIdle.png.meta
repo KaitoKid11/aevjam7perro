@@ -1,0 +1,110 @@
+fileFormatVersion: 2
+guid: 5b8590f1917711e4493ce60cd9a178c1
+timeCreated: 1476620992
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: AspiradoraIdle_0
+    21300002: AspiradoraIdle_1
+    21300004: AspiradoraIdle_2
+    21300006: AspiradoraIdle_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 10
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AspiradoraIdle_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2
+        width: 44
+        height: 61
+      alignment: 9
+      pivot: {x: 0.8047031, y: 0.51188016}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: AspiradoraIdle_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 2
+        width: 43
+        height: 59
+      alignment: 9
+      pivot: {x: 0.7865086, y: 0.52456576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: AspiradoraIdle_2
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 2
+        width: 44
+        height: 59
+      alignment: 9
+      pivot: {x: 0.7799967, y: 0.52456576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: AspiradoraIdle_3
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 2
+        width: 43
+        height: 59
+      alignment: 9
+      pivot: {x: 0.7780822, y: 0.5276367}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
