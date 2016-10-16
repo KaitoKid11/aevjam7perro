@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour {
 
     public AudioClip soundtrack;
     public AudioClip explosion;
+    public AudioClip EnemyDestroyed;
     public AudioClip[] playerShoot;
 
     // Use this for initialization
@@ -31,6 +32,12 @@ public class SoundManager : MonoBehaviour {
     {
         return soundtrack;
     }
+
+    public AudioClip getEnemyDestroyed()
+    {
+        return EnemyDestroyed;
+    }
+
 
     public AudioClip getPlayerShoot()
     {
