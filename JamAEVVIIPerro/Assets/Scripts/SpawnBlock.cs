@@ -7,7 +7,7 @@ public class SpawnBlock : MonoBehaviour {
 
     public Sprite[] spritesBasicos = new Sprite[7];     //Índice 1 - Indica edificios normales
     public Sprite[] rioRecto = new Sprite[9];           //Índice 2 - Indica partes del río rectas
-    public Sprite[] rioCurva = new Sprite[6];           //Índice 3 - Indica partes del río rectas
+    public Sprite[] rioCurva = new Sprite[6];           //Índice 3 - Indica partes del río curvas
     public Sprite[] spritesLargos = new Sprite[1];      //Índice 4 - Indica edificios normales largos
 
     private int[][] lastUsed = new int[7][];
@@ -178,7 +178,7 @@ public class SpawnBlock : MonoBehaviour {
             bloque.GetComponent<SpriteRenderer>().sprite = spritesBasicos[sprite];
             Instantiate(bloque, spawn.position, Quaternion.identity);
 
-            newUsed[index][0] = 0;
+            newUsed[index][0] = 1;
             newUsed[index][1] = sprite;
             ++contSpawned;
         }
