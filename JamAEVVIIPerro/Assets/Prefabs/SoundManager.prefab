@@ -43,9 +43,8 @@ MonoBehaviour:
   soundtrack: {fileID: 8300000, guid: cf2f9f8d28298f74bb653c4bcefa5a71, type: 3}
   playerShoot:
   - {fileID: 8300000, guid: 42703dc7571d22d448df26cd95120fc7, type: 3}
-  - {fileID: 8300000, guid: cf2f9f8d28298f74bb653c4bcefa5a71, type: 3}
-  - {fileID: 8300000, guid: 7613320a0b113824fada698a434ddc9a, type: 3}
   - {fileID: 8300000, guid: dd63c5dbab5017a4cb083fbdeb3518b8, type: 3}
+  - {fileID: 8300000, guid: 7613320a0b113824fada698a434ddc9a, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
