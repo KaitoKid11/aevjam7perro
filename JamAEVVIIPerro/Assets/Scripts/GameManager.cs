@@ -99,6 +99,6 @@ public class GameManager : MonoBehaviour {
         GUIManager.GUIManagerInstance.playerDead();
         player.GetComponent<CircleCollider2D>().enabled = false;
         //PersistentScore.PersistentScoreInstance.setFinalScore(score);
-        SceneManager.LoadScene("MainMenu");
+        //SceneManager.LoadScene("MainMenu");
     }
 }

@@ -469,9 +469,17 @@ Prefab:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1845609826}
+    - target: {fileID: 11404692, guid: 06665d4e1f01f5f41a8cc0bbcbbca28a, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1205051811}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06665d4e1f01f5f41a8cc0bbcbbca28a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1205051811 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 183234, guid: 47af7624e6738034a8e827ad5e54e30c, type: 2}
+  m_PrefabInternal: {fileID: 980068511}
 --- !u!1001 &1632052391
 Prefab:
   m_ObjectHideFlags: 0
