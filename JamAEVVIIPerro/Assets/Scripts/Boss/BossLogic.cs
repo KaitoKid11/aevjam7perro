@@ -52,9 +52,13 @@ public class BossLogic : MonoBehaviour {
         {
             case Stage.Three_Heads:
                 currentStage = Stage.Five_Heads;
+                this.transform.Find("BossHead2").gameObject.SetActive(true);
+                this.transform.Find("BossHead6").gameObject.SetActive(true);
                 break;
             case Stage.Five_Heads:
                 currentStage = Stage.Seven_Heads;
+                this.transform.Find("BossHead1").gameObject.SetActive(true);
+                this.transform.Find("BossHead7").gameObject.SetActive(true);
                 break;
             case Stage.Seven_Heads:
                 if (numHeadsDestroyed == numHeadsBoss) BossDefeated();
