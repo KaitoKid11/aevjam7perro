@@ -18,6 +18,9 @@ public class PlayerCombat : MonoBehaviour {
     public float m_shootingCooldown = 1f;
     public int maxLevel = 3;
 
+    [Header("Score increase per shoot max level")]
+    public float scoreAumontPerShootMaxLevel = 1000;
+
     private bool playerHasRevived = false;
     private bool dead = false;
 
@@ -72,10 +75,15 @@ public class PlayerCombat : MonoBehaviour {
         if (dmg)
             m_attackLevel = 1;
         else
+        {
             if (m_attackLevel < maxLevel)
                 ++m_attackLevel;
             else
+            {
                 m_attackLevel = maxLevel;
+                GameManager.GameManagerInstance.increaseScore(scoreAumontPerShootMaxLevel);
+            }
+        }
     }
 
     public void revivingAnimationEnded()
