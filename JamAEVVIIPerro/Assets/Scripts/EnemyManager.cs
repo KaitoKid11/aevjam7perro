@@ -395,7 +395,7 @@ public class EnemyManager : MonoBehaviour
     // Fin de la etapa del jefe
     public void BossDefeated()
     {
-
+        waitingTime = waitingTime - 0.4f;
         bossStage = false;
     }
 
