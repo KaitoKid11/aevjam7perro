@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class GUIManager : MonoBehaviour {
 
@@ -24,6 +25,14 @@ public class GUIManager : MonoBehaviour {
     public Text thirdScoreNumber;
     public Text fourthScoreNumber;
     public Text fifthScoreNumber;
+
+    public GameObject deadCanvas;
+    public GameObject UICanvas;
+
+    public GameObject nameSelector;
+    public GameObject buttons;
+
+    public GameObject playAgainButton;
 
 
     public void updateHealthUI(int lifes)
@@ -64,4 +73,21 @@ public class GUIManager : MonoBehaviour {
  
     }
 
+    public void playerDead()
+    {
+        deadCanvas.SetActive(true);
+
+    }
+    public void highlightPlayAgainButton()
+    {
+        StartCoroutine(highlightButtonAfterFrameEnd());
+
+    }
+    IEnumerator highlightButtonAfterFrameEnd()
+    {
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(playAgainButton);
+    }
 }
+
+        //StartCoroutine(highlightButtonAfterFrameEnd());

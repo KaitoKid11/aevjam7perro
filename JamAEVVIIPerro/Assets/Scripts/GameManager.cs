@@ -15,13 +15,15 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     public float score;
-    public int lifes;
+    public int lifes = 1;
     public GameObject pauseMenu;
+
+
+    public GameObject player;
 
     // Use this for initialization
     void Start () {
         score = 0;
-        lifes = 3;
         GUIManager.GUIManagerInstance.setInitialValues(lifes, score);
         PersistentScore.PersistentScoreInstance.Load();
         PersistentScore.PersistentScoreInstance.ResetScores();
@@ -68,7 +70,9 @@ public class GameManager : MonoBehaviour {
     public void playerDead()
     {
         Debug.Log("FUCKING DEAD BIATCH");
-        PersistentScore.PersistentScoreInstance.setFinalScore(score);
-        SceneManager.LoadScene("MainMenu");
+        GUIManager.GUIManagerInstance.playerDead();
+        player.GetComponent<CircleCollider2D>().enabled = false;
+        //PersistentScore.PersistentScoreInstance.setFinalScore(score);
+        //SceneManager.LoadScene("MainMenu");
     }
 }

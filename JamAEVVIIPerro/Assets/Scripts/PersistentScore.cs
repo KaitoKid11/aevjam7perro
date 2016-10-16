@@ -26,20 +26,21 @@ public class PersistentScore : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
 	}
 
-    public void setFinalScore(float score)
+    public void setFinalScore(float score,string name)
     {
         finalScore = score;
         
         Score newScore = new Score();
         newScore.score = score;
-        newScore.name = "fff";
+        newScore.name = name;
 
-        if(scores == null)
-            scores = new List<Score>();
+        //if (scores == null)
+        //    scores = new List<Score>();
 
         scores.Add(newScore);
         scores.Sort(CompareScoresByScore);
         Save();
+        Load();
         drawScores();
     }
 

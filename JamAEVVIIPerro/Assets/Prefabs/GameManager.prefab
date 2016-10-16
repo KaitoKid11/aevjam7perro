@@ -116,8 +116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  lifes: 0
+  lifes: 3
   pauseMenu: {fileID: 103310, guid: f839e465632011d4488a4937c181bef5, type: 2}
+  player: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
