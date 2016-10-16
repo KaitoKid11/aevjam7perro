@@ -15,6 +15,7 @@ TagManager:
   - Delete
   - PlayerBullet
   - PauseMenu
+  - Boss
   layers:
   - Default
   - TransparentFX

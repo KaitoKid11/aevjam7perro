@@ -20,12 +20,8 @@ public class ExplosionBullet : MonoBehaviour {
         if(Vector2.Distance(transform.position, destination) < 0.1f)
         {
             GameManager.GameManagerInstance.viejaUsed();
+            EnemyManager.enemyManagerInstance.BombThrown();
             Destroy(gameObject);
-        }
-        /*transform.position = Vector2.MoveTowards(transform.position, destination, bulletSpeed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, destination) < 0.1f)
-        {
-            Destroy(gameObject);
-        }*/   
+        }  
 	}
 }

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     public float score;
-    public int lifes = 1;
+    public int lifes = 3;
     
     [HideInInspector]
     public GameObject pauseMenu;

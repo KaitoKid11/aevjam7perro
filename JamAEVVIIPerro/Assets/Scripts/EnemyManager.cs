@@ -68,6 +68,9 @@ public class EnemyManager : MonoBehaviour
     // Proyectiles
     public GameObject enemyBullet;
 
+    // Vieja
+    public bool vieja;
+
     #region Singleton
     public static EnemyManager enemyManagerInstance;
 
@@ -97,7 +100,7 @@ public class EnemyManager : MonoBehaviour
             // Waiting...
             yield return new WaitForSeconds(waitingTime);
 
-            if (!bossStage)
+            if (!bossStage && !vieja)
             {
                 // Instantiating enemies...
                 GenerateNextWave();
@@ -392,6 +395,20 @@ public class EnemyManager : MonoBehaviour
     // Fin de la etapa del jefe
     public void BossDefeated()
     {
+
         bossStage = false;
+    }
+
+    // La vieja atacó
+    public void BombThrown()
+    {
+        vieja = true;
+        StartCoroutine(viejaBomb());
+    }
+
+    IEnumerator viejaBomb()
+    {
+        yield return new WaitForSeconds(2f);
+        vieja = false;
     }
 }
