@@ -184,10 +184,10 @@ public class NameSelector : MonoBehaviour {
 
     private void highlightLetter()
     {
-        Debug.Log("HIGHLIGHT");
+        //Debug.Log("HIGHLIGHT");
         if(currentSelectedSpace == 0)
         {
-            Debug.Log("First");
+            //Debug.Log("First");
 
             //secondLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
             thirdLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
@@ -195,21 +195,21 @@ public class NameSelector : MonoBehaviour {
         }
         else if (currentSelectedSpace == 1)
         {
-            Debug.Log("Scond");
+            //Debug.Log("Scond");
             firstLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
             //thirdLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
             //secondLetterText.GetComponent<Animator>().SetTrigger("ToHighlight");
         }
         else if (currentSelectedSpace == 2)
         {
-            Debug.Log("third");
+            //Debug.Log("third");
             //firstLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
             //secondLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
             thirdLetterText.GetComponent<Animator>().SetTrigger("ToHighlight");
         }
         else if (currentSelectedSpace == 3)
         {
-            Debug.Log("Done");
+            //Debug.Log("Done");
             //firstLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
             //secondLetterText.GetComponent<Animator>().SetTrigger("ToIdle");
             //thirdLetterText.GetComponent<Animator>().SetTrigger("ToHighlight");

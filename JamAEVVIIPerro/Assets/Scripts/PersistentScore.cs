@@ -36,7 +36,10 @@ public class PersistentScore : MonoBehaviour {
         newScore.name = name;
 
         if (scores == null)
+        {
             scores = new List<Score>();
+            Debug.Log("score vacio");
+        }
 
         scores.Add(newScore);
         scores.Sort(CompareScoresByScore);

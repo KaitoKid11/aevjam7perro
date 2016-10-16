@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour {
 
     public void playerDead()
     {
-        Debug.Log("FUCKING DEAD BIATCH");
+        //Debug.Log("FUCKING DEAD BIATCH");
         GUIManager.GUIManagerInstance.playerDead();
         player.GetComponent<CircleCollider2D>().enabled = false;
         //PersistentScore.PersistentScoreInstance.setFinalScore(score);
