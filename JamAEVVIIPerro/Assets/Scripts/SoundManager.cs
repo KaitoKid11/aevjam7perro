@@ -16,8 +16,6 @@ public class SoundManager : MonoBehaviour {
     public AudioClip soundtrack;
     public AudioClip[] playerShoot;
 
-    private int playerShootController = 1;
-
     // Use this for initialization
     void Start () {
 	

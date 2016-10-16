@@ -26,7 +26,11 @@ public class GameManager : MonoBehaviour {
         PersistentScore.PersistentScoreInstance.Load();
         PersistentScore.PersistentScoreInstance.ResetScores();
         GUIManager.GUIManagerInstance.updateHighScore(PersistentScore.PersistentScoreInstance.scores);
-	}
+
+        this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getSoundTrack();
+        this.GetComponent<AudioSource>().Play();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
