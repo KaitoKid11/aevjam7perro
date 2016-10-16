@@ -46,10 +46,10 @@ public class EnemyShoot : MonoBehaviour {
 
     private void InstantiateBullet(GameObject bulletGameObject, Vector3 bulletPosition)
     {
-        Instantiate(bulletGameObject, bulletPosition, Quaternion.identity);
+        GameObject newEnemyInstance = (GameObject)Instantiate(bulletGameObject, bulletPosition, Quaternion.identity);
 
         if (bulletGameObject == EnemyManager.enemyManagerInstance.enemyHunter)
-            bulletGameObject.AddComponent<EnemyMoveFollow>();
+            newEnemyInstance.AddComponent<EnemyMoveFollow>();
     }
 
 }
