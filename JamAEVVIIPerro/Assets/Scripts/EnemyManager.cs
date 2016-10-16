@@ -56,6 +56,9 @@ public class EnemyManager : MonoBehaviour
     // Tiempo de espera entre enemigos
     public float waitingTime = 1.0f;
 
+    // Tiempo de espera al iniciar el juego
+    public float startWaitingTime = 7.5f;
+
     // Prefab de los enemigos
     public GameObject enemyRoomba;
     public GameObject enemyVacuum;
@@ -87,6 +90,8 @@ public class EnemyManager : MonoBehaviour
     // Enemy generation coroutine
     IEnumerator GenerateEnemies()
     {
+        yield return new WaitForSeconds(startWaitingTime);
+
         while (true)
         {
             // Waiting...

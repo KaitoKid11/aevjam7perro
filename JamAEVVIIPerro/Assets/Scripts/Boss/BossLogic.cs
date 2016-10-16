@@ -19,6 +19,7 @@ public class BossLogic : MonoBehaviour {
 
     // Número de cabezas destruidas
     private int numHeadsDestroyed = 0;
+    public int numHeadsBoss = 3;
 
     public bool Invulnerable
     {
@@ -56,7 +57,7 @@ public class BossLogic : MonoBehaviour {
                 currentStage = Stage.Seven_Heads;
                 break;
             case Stage.Seven_Heads:
-                if (numHeadsDestroyed == 7) BossDefeated();
+                if (numHeadsDestroyed == numHeadsBoss) BossDefeated();
                 break;
             default:
                 break;

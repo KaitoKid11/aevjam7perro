@@ -22,6 +22,8 @@ public class BossHeadLife : MonoBehaviour {
                 Damage(other.gameObject.GetComponent<ForwardBullet>().damage);
             else
                 Damage(other.gameObject.GetComponent<ConeBullet>().damage);
+
+            Destroy(other.gameObject);
         }
     }
 
