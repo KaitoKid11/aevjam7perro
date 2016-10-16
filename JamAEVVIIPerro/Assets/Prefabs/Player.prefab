@@ -192,6 +192,7 @@ MonoBehaviour:
   RightConeBullet: {fileID: 110838, guid: 002071bfd15c4c245881ca7fafcb0d47, type: 2}
   m_shootingCooldown: 0.35
   maxLevel: 3
+  scoreAumontPerShootMaxLevel: 1000
 --- !u!212 &21262334
 SpriteRenderer:
   m_ObjectHideFlags: 1
