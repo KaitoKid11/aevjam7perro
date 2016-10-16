@@ -67,11 +67,11 @@ public class SpawnBlock : MonoBehaviour {
     public void SpawnBlockUnit(Transform spawn, int index)
     {
         int sprite;
-        if (index == 2)
-        {
-
-        }
         int[] rectosRio = {0, 3, 6};
+        if(index == 2)
+        {
+            int x = 0;
+        }
         //Los index van desde 0 (Spawn más a la izq) hasta 6 (spawn) más a la derecha
         //Continuación de edificio largo
         if (lastUsed[index][0] == 1 && lastUsed[index][1] == 6)
@@ -84,13 +84,15 @@ public class SpawnBlock : MonoBehaviour {
             lastUsed[index][1] = 0;
         }
         //Continuación de río si eres el primero colocado (Giro o no)
-        else if(lastUsed[index][0] == 2 && lastUsed[index][1] % 3 == 1)
+        else if(lastUsed[index][0] == 2 && lastUsed[index][1] < 3)
         {
+            Debug.Log("Entrada.");
+            Debug.Log("Index 0: " + lastUsed[index][0]);
+            Debug.Log("Index 1: " + lastUsed[index][1]);
             int giroRand = Random.Range(0, 2);
             //Sigue recto
             if(true)//giroRand == 0)
             {
-
                 sprite = Random.Range(1, rioRecto.Length + 1);
                 bloque.GetComponent<SpriteRenderer>().sprite = rioRecto[sprite % 3];
 
