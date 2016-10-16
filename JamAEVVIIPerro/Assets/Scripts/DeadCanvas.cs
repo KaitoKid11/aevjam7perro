@@ -6,6 +6,17 @@ using System.Collections;
 
 public class DeadCanvas : MonoBehaviour {
 
+    #region Singleton
+    public static DeadCanvas DeadCanvasInstance;
+
+    void Awake()
+    {
+        if (DeadCanvasInstance == null)
+            DeadCanvasInstance = gameObject.GetComponent<DeadCanvas>();
+    }
+    #endregion
+
+
     [Header("HighScore")]
     public Text yourScoreNumber; 
     public Text firstScoreNumber;

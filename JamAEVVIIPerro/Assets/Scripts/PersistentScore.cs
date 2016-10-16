@@ -43,7 +43,7 @@ public class PersistentScore : MonoBehaviour {
 
         scores.Add(newScore);
         scores.Sort(CompareScoresByScore);
-        drawScores();
+        //drawScores();
         Save();
     }
 
@@ -82,12 +82,16 @@ public class PersistentScore : MonoBehaviour {
     {
         if(File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
         {
+            //Debug.Log("file exist");
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat",FileMode.Open);
             PlayerScores data = (PlayerScores)bf.Deserialize(file);
-            file.Close();
+            //print(Application.persistentDataPath);
 
             scores = data.scores;
+
+            file.Close();
+
         }
     }
 

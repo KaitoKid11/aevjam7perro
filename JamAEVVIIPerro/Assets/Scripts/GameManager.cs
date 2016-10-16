@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
         score = 0;
         GUIManager.GUIManagerInstance.setInitialValues(lifes, score);
         PersistentScore.PersistentScoreInstance.Load();
-        PersistentScore.PersistentScoreInstance.ResetScores();
+        //PersistentScore.PersistentScoreInstance.ResetScores();
         GUIManager.GUIManagerInstance.updateHighScore(PersistentScore.PersistentScoreInstance.scores);
 
         this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getSoundTrack();

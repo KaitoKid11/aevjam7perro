@@ -76,6 +76,8 @@ public class NameSelector : MonoBehaviour {
                   GUIManager.GUIManagerInstance.highlightPlayAgainButton();
                   
                   PersistentScore.PersistentScoreInstance.setFinalScore(GameManager.GameManagerInstance.score,currentFirstLetter+currentSecondLetter+currentThirdLetter);
+
+                  DeadCanvas.DeadCanvasInstance.updateHighScore(PersistentScore.PersistentScoreInstance.scores);
                   return;
               }
             }
