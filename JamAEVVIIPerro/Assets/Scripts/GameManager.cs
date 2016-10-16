@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour {
 
     #region Singleton
     public static GameManager GameManagerInstance;
-    public GameObject pauseMenu;
 
     void Awake()
     {
@@ -17,9 +16,10 @@ public class GameManager : MonoBehaviour {
 
     public float score;
     public int lifes;
+    public GameObject pauseMenu;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         score = 0;
         lifes = 3;
         GUIManager.GUIManagerInstance.setInitialValues(lifes, score);
