@@ -28,7 +28,7 @@ public class BossHeadLife : MonoBehaviour {
     }
 
     // Llamada cuando el enemigo recibe daño
-    void Damage(float damage)
+    public void Damage(float damage)
     {
         if (transform.parent.GetComponent<BossLogic>().Invulnerable == true)
             return;

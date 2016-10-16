@@ -36,8 +36,6 @@ public class GameManager : MonoBehaviour {
 
         pauseMenuContainer = GameObject.FindGameObjectWithTag(Tags.PauseMenu);
         pauseMenu = pauseMenuContainer.transform.Find("PauseMenu").gameObject;
-
-
     }
 	
 	// Update is called once per frame
@@ -90,7 +88,7 @@ public class GameManager : MonoBehaviour {
         } 
         foreach (GameObject destroyable in boss)
         {
-            //destroyable.GetComponent<BossHeadLife>().Damage(5f);
+            destroyable.GetComponent<BossHeadLife>().Damage(5f);
         }
         //Cambiar el valor de un atributo en el spawn de enemigos para bloquear el spawn de enemigos 2 segundos
     }
@@ -101,6 +99,6 @@ public class GameManager : MonoBehaviour {
         GUIManager.GUIManagerInstance.playerDead();
         player.GetComponent<CircleCollider2D>().enabled = false;
         //PersistentScore.PersistentScoreInstance.setFinalScore(score);
-        //SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }
