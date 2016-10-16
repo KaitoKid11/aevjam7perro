@@ -17,6 +17,9 @@ public class DropManager : MonoBehaviour {
     public int lifeDropPercentage = 10;
     public int shootLevelPercentage = 5;
 
+    [Header("Seconds to destroy drops")]
+    public int timeToDestroy = 5;
+
     [Header("Drops")]
     public GameObject lifeDrop;
     public GameObject shootLevelDrop;
