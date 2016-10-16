@@ -13,6 +13,7 @@ public static class Tags {
     public static string LifeUp = "LifeUp";
     public static string PowerUp = "PowerUp";
     public static string PauseMenu = "PauseMenu";
+    public static string Boss = "Boss";
     
     public static string NameSpawn = "Spawn";
     public static string NameDelete = "Delete";

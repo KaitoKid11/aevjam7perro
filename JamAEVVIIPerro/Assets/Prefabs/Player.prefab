@@ -187,9 +187,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_attackLevel: 1
   m_timeInvulnerabilityBase: 3
+  m_vieja: 1
   currentBasicBullet: {fileID: 153258, guid: c4a4a62982fbd50458d7d0c24ac44c6e, type: 2}
   leftConeBullet: {fileID: 155512, guid: b6686c1f9ae47164693f90612080a191, type: 2}
   RightConeBullet: {fileID: 110838, guid: 002071bfd15c4c245881ca7fafcb0d47, type: 2}
+  vieja: {fileID: 158520, guid: bb7b26fc801d3ef4cafbd55d024a42bb, type: 2}
   m_shootingCooldown: 0.35
   maxLevel: 3
   scoreAumontPerShootMaxLevel: 1000

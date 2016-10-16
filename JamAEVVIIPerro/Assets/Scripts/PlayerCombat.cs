@@ -10,11 +10,13 @@ public class PlayerCombat : MonoBehaviour {
     [Header("Config. Player")]
     public int m_attackLevel = 1;
     public float m_timeInvulnerabilityBase = 1f;
+    public bool m_vieja = true;
 
     [Header("Bullets")]
     public GameObject currentBasicBullet;
     public GameObject leftConeBullet;
     public GameObject RightConeBullet;
+    public GameObject vieja;
     public float m_shootingCooldown = 1f;
     public int maxLevel = 3;
 
@@ -30,6 +32,13 @@ public class PlayerCombat : MonoBehaviour {
         if (Input.GetButton(KeyCodes.Fire1) && m_timeSinceLastAttack < 0 && !dead)
         {
             shoot(m_attackLevel);
+        } 
+        
+        if (Input.GetButton(KeyCodes.Fire2) && m_vieja && !dead)
+        {
+            //Llamada animator para quitar la vieja;
+            Instantiate(vieja, this.transform.position, Quaternion.identity);
+            m_vieja = false;
         }
 
         m_timeSinceLastAttack -= Time.deltaTime;
