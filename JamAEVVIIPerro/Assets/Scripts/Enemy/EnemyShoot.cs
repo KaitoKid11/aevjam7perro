@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyShoot : MonoBehaviour {
 
-    private GameObject enemyBullet;
+    public GameObject enemyBullet;
 
     public GameObject EnemyBullet
     {
@@ -36,12 +36,20 @@ public class EnemyShoot : MonoBehaviour {
             yield return new WaitForSeconds(shootingCooldown);
 
             // Instantiating bullets...
-            Instantiate(EnemyBullet, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.25f);
-            Instantiate(EnemyBullet, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.25f);
-            Instantiate(EnemyBullet, transform.position, Quaternion.identity);
+            for (int i = 0; i < numBullets; ++i )
+            {
+                InstantiateBullet(EnemyBullet, transform.position);
+                yield return new WaitForSeconds(0.25f);
+            }
         }
+    }
+
+    private void InstantiateBullet(GameObject bulletGameObject, Vector3 bulletPosition)
+    {
+        Instantiate(bulletGameObject, bulletPosition, Quaternion.identity);
+
+        if (bulletGameObject == EnemyManager.enemyManagerInstance.enemyHunter)
+            bulletGameObject.AddComponent<EnemyMoveFollow>();
     }
 
 }

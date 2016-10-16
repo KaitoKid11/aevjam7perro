@@ -625,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3f519d318c35949bc0b9a321ffc596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 0}
   numBullets: 2
   shootingCooldown: 3
 --- !u!114 &11411836
@@ -638,6 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3f519d318c35949bc0b9a321ffc596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 0}
   numBullets: 2
   shootingCooldown: 3
 --- !u!114 &11424856
@@ -651,6 +653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3f519d318c35949bc0b9a321ffc596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 117212, guid: ebb340a01dfc5a4448ce2977bb9a4f9c, type: 2}
   numBullets: 1
   shootingCooldown: 5
 --- !u!114 &11426778
@@ -676,6 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3f519d318c35949bc0b9a321ffc596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 117212, guid: ebb340a01dfc5a4448ce2977bb9a4f9c, type: 2}
   numBullets: 1
   shootingCooldown: 5
 --- !u!114 &11442124
@@ -689,6 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3f519d318c35949bc0b9a321ffc596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 0}
   numBullets: 3
   shootingCooldown: 2
 --- !u!114 &11461692
@@ -726,6 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3f519d318c35949bc0b9a321ffc596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 0}
   numBullets: 3
   shootingCooldown: 2
 --- !u!114 &11475860
@@ -775,6 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3f519d318c35949bc0b9a321ffc596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 0}
   numBullets: 3
   shootingCooldown: 2
 --- !u!114 &11498484
