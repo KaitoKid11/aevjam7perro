@@ -97,6 +97,9 @@ public class PlayerCombat : MonoBehaviour {
         Vector3 playerLeft = new Vector3(player.x - 0.3f, player.y, player.z);
         Vector3 playerRight = new Vector3(player.x + 0.3f, player.y, player.z);
 
+        this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getPlayerShoot();
+        this.GetComponent<AudioSource>().Play();
+
         switch (level)
         {
             case 1:

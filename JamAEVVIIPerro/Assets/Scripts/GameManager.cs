@@ -15,24 +15,22 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     public float score;
-    
-    public int lifes = 3;
-
-    public PlayerCombat playerCombatScript;
-
-    [Header("Canvas")]
-    public GameObject deadPanel;
-    public GameObject UIPanel;
+    public int lifes;
     public GameObject pauseMenu;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         score = 0;
+        lifes = 3;
         GUIManager.GUIManagerInstance.setInitialValues(lifes, score);
         PersistentScore.PersistentScoreInstance.Load();
         PersistentScore.PersistentScoreInstance.ResetScores();
         GUIManager.GUIManagerInstance.updateHighScore(PersistentScore.PersistentScoreInstance.scores);
-	}
+
+        this.GetComponent<AudioSource>().clip = SoundManager.SoundManagerInstance.getSoundTrack();
+        this.GetComponent<AudioSource>().Play();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -69,10 +67,8 @@ public class GameManager : MonoBehaviour {
 
     public void playerDead()
     {
-        //Debug.Log("FUCKING DEAD BIATCH");
-        playerCombatScript.GetComponent<CircleCollider2D>().enabled = false;
-
-        deadPanel.SetActive(true);
-        UIPanel.SetActive(true);        
+        Debug.Log("FUCKING DEAD BIATCH");
+        PersistentScore.PersistentScoreInstance.setFinalScore(score);
+        SceneManager.LoadScene("MainMenu");
     }
 }

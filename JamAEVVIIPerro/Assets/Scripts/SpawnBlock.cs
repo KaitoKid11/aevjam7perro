@@ -4,61 +4,106 @@ using System.Collections;
 public class SpawnBlock : MonoBehaviour {
 
     public GameObject bloque;
-    public Sprite[] spritesBasicos = new Sprite[7];
-    public Sprite[] spritesLargos = new Sprite[1];
 
-    private int[] lastUsed = new int[7];
-	// Use this for initialization
+    public Sprite[] spritesBasicos = new Sprite[7];     //Índice 1 - Indica edificios normales
+    public Sprite[] rioRecto = new Sprite[9];           //Índice 2 - Indica partes del río rectas
+    public Sprite[] rioCurva = new Sprite[6];           //Índice 3 - Indica partes del río rectas
+    public Sprite[] spritesLargos = new Sprite[1];      //Índice 4 - Indica edificios normales largos
+
+    private int[][] lastUsed = new int[7][];
+    private bool giro;
+    private int contSpawned = 0;
+
 	void Start () {
-        for (int i = 1; i < 8; ++i)
+        for (int i = 0; i < lastUsed.Length; ++i)
+            lastUsed[i] = new int[2];
+
+        //[i - 1] -> Soy yo 
+        for (int i = 1; i < 8; ++i) //Recorremos los spawns de bloques
         {
-            if(i != 1 && i != 7)
+            //El río siempre empieza en 3
+            if(i == 3)
             {
-                if(lastUsed[i-1] == 999/*Valor de carretera o río en giro*/)
+                int sprite = 0;
+                bloque.GetComponent<SpriteRenderer>().sprite = rioRecto[sprite];
+                Instantiate(bloque, transform.FindChild("Building" + i + "/Spawn").transform.position, Quaternion.identity);
+                ++contSpawned;
+
+                lastUsed[i - 1][0] = 2;
+                lastUsed[i - 1][1] = sprite;
+            }
+            else
+            {
+                int sprite;
+                if (i > 2 && lastUsed[i - 2][0] == 2 && i < 6)
                 {
-                    //COLOCAR LOS CUADROS CONTIGUOS A CARRETERA O RÍO en giro
+                    sprite = lastUsed[i - 2][1] + 3;
+                    bloque.GetComponent<SpriteRenderer>().sprite = rioRecto[sprite];
+                    lastUsed[i - 1][0] = 2;
                 }
                 else
                 {
-                    //SOLO COLOCAR LOS QUE QUEREMOS EN LOS BORDES
-                    int sprite = Random.Range(0, spritesBasicos.Length);
+                    sprite = Random.Range(0, spritesBasicos.Length);
                     bloque.GetComponent<SpriteRenderer>().sprite = spritesBasicos[sprite];
-                    Instantiate(bloque, transform.FindChild("Building" + i + "/Spawn").transform.position, Quaternion.identity);
-                    lastUsed[i - 1] = sprite;
+                    lastUsed[i - 1][0] = 1;
                 }
-            }
-            else
-            { 
-                int sprite = Random.Range(0, spritesBasicos.Length);
-                bloque.GetComponent<SpriteRenderer>().sprite = spritesBasicos[sprite];
                 Instantiate(bloque, transform.FindChild("Building" + i + "/Spawn").transform.position, Quaternion.identity);
-                lastUsed[i-1] = sprite;
+                ++contSpawned;
+                
+                lastUsed[i - 1][1] = sprite;
             }
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if(contSpawned == 7)
+        {
+            giro = false;
+            contSpawned = 0;
+        }
 	}
 
     public void SpawnBlockUnit(Transform spawn, int index)
     {
-        if (lastUsed[index] == 6)
+        int sprite;
+        if (index == 2)
+        {
+
+        }
+        int[] rectosRio = {0, 3, 6};
+        //Los index van desde 0 (Spawn más a la izq) hasta 6 (spawn) más a la derecha
+        //Continuación de edificio largo
+        if (lastUsed[index][0] == 1 && lastUsed[index][1] == 6)
         {
             bloque.GetComponent<SpriteRenderer>().sprite = spritesLargos[0];
             Instantiate(bloque, spawn.position, Quaternion.identity);
-            lastUsed[index] = 0;
+            ++contSpawned;
+            
+            lastUsed[index][0] = 4;
+            lastUsed[index][1] = 0;
         }
-        else if(lastUsed[index] == 999/*CARRETERA O RÍO*/)
+        //Continuación de río si eres el primero colocado (Giro o no)
+        else if(lastUsed[index][0] == 2 && lastUsed[index][1] % 3 == 1)
         {
-            /*PUEDE SEGUIR RECTO O GIRAR*/
-            if(false /*GIRAR*/)
+            int giroRand = Random.Range(0, 2);
+            //Sigue recto
+            if(true)//giroRand == 0)
             {
-                if(index == 0)
+
+                sprite = Random.Range(1, rioRecto.Length + 1);
+                bloque.GetComponent<SpriteRenderer>().sprite = rioRecto[sprite % 3];
+
+                lastUsed[index][0] = 2;
+                lastUsed[index][1] = sprite;
+            }
+            else
+            {
+                if (index == 0)
                 {
                     /*SOLO PUEDE GIRAR A DERECHA*/
                 }
-                else if(index == 6)
+                else if (index == 6)
                 {
                     /*SOLO PUEDE GIRAR A IZQUIERDA*/
                 }
@@ -67,13 +112,24 @@ public class SpawnBlock : MonoBehaviour {
                     /*PUEDE GIRAR A AMBOS LADOS*/
                 }
             }
+
+            Instantiate(bloque, spawn.position, Quaternion.identity);
+            ++contSpawned;
+        }
+        //Río sin ser el primero colocado
+        else if(lastUsed[index][0] == 2 && (lastUsed[index][1]+1)%3 != 1)
+        {
+
         }
         else
         {
-            int sprite = Random.Range(0, spritesBasicos.Length);
+            sprite = Random.Range(0, spritesBasicos.Length);
             bloque.GetComponent<SpriteRenderer>().sprite = spritesBasicos[sprite];
             Instantiate(bloque, spawn.position, Quaternion.identity);
-            lastUsed[index] = sprite;
+            ++contSpawned;
+
+            lastUsed[index][0] = 0;
+            lastUsed[index][1] = sprite;
         }
     }
 
