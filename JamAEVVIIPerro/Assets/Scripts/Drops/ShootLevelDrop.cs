@@ -20,6 +20,6 @@ public class ShootLevelDrop : MonoBehaviour {
     IEnumerator autoDestroy()
     {
         yield return new WaitForSeconds(DropManager.DropManagerInstance.timeToDestroy);
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }

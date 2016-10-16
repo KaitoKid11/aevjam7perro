@@ -56,9 +56,14 @@ public class NameSelector : MonoBehaviour {
         possiblesLetters.Add("T");
         possiblesLetters.Add("U");
         possiblesLetters.Add("V");
+        possiblesLetters.Add("W");
         possiblesLetters.Add("X");
         possiblesLetters.Add("Y");
         possiblesLetters.Add("Z");
+        possiblesLetters.Add("-");
+        possiblesLetters.Add("+");
+        possiblesLetters.Add("_");
+        possiblesLetters.Add("/");
 
         highlightLetter();
 	

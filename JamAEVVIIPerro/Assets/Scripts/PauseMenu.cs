@@ -27,19 +27,16 @@ public class PauseMenu : MonoBehaviour {
 
     public void resumeGame()
     {
-        Debug.Log("kk1");
         transform.gameObject.SetActive(false);
     }
 
     public void loadMainMenu()
     {
-        Debug.Log("kk2");
         SceneManager.LoadScene("MainMenu");
     }
 
     public void exitGame()
     {
-        Debug.Log("kk3");
         Application.Quit();
     }
 

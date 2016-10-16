@@ -26,11 +26,11 @@ public class DropManager : MonoBehaviour {
 
     public void basicEnemyDrop(Vector3 position)
     {
-        if (Random.Range(0, 100) < 10 & GameManager.GameManagerInstance.lifes < 5)
+        if (Random.Range(0, 100) < lifeDropPercentage & GameManager.GameManagerInstance.lifes < 5)
         {
             GameObject newDropInstance = (GameObject)Instantiate(lifeDrop, position, Quaternion.identity);
         }
-        else if (Random.Range(0, 100) < 5)
+        else if (Random.Range(0, 100) < shootLevelPercentage)
         {
             GameObject newDropInstance = (GameObject)Instantiate(shootLevelDrop, position, Quaternion.identity);
         }
