@@ -5,7 +5,7 @@ public class EnemyMoveFollow : MonoBehaviour
 {
     private GameObject player;
 
-    public float speed = 4.0f;
+    public float speed = 3.5f;
 
 	void Start () {
         player = GameObject.FindGameObjectWithTag(Tags.Player);

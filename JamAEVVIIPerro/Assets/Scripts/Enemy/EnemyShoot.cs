@@ -32,15 +32,15 @@ public class EnemyShoot : MonoBehaviour {
     {
         while (true)
         {
-            // Waiting...
-            yield return new WaitForSeconds(shootingCooldown);
-
             // Instantiating bullets...
             for (int i = 0; i < numBullets; ++i )
             {
                 InstantiateBullet(EnemyBullet, transform.position);
                 yield return new WaitForSeconds(0.25f);
             }
+
+            // Waiting...
+            yield return new WaitForSeconds(shootingCooldown);
         }
     }
 

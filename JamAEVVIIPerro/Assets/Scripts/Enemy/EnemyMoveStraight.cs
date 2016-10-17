@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyMoveStraight : MonoBehaviour {
 
-    public float speed = 2.5f;
+    public float speed = 4.5f;
 
 	void Start () {
 	

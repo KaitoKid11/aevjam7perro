@@ -109,16 +109,16 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 303582870}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.023398796, w: 0.99972624}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.6815999}
   m_Children: []
   m_Father: {fileID: 1687283146}
   m_RootOrder: 3
   m_AnchorMin: {x: 0.3596667, y: 0.043893736}
   m_AnchorMax: {x: 0.63847923, y: 0.22377658}
-  m_AnchoredPosition: {x: 550, y: -66}
+  m_AnchoredPosition: {x: 354, y: 31}
   m_SizeDelta: {x: -310, y: -68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &303582872
@@ -134,10 +134,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 4
-    m_SelectOnUp: {fileID: 1153812911}
-    m_SelectOnDown: {fileID: 422063427}
-    m_SelectOnLeft: {fileID: 621602295}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 422063427}
+    m_SelectOnRight: {fileID: 422063427}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
@@ -147,9 +147,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: c6c6a54b5504e1c47ac941d146396e88,
+    m_HighlightedSprite: {fileID: 21300000, guid: de19af21080ad694eb4424d1eeb738a4,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 854c969d452832f458afa39b684fcbbd, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: eadec63f00b57154d8fb28ba3884e1cd, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -193,7 +193,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 854c969d452832f458afa39b684fcbbd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eadec63f00b57154d8fb28ba3884e1cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -256,9 +256,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 4
-    m_SelectOnUp: {fileID: 1153812911}
+    m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 621602295}
+    m_SelectOnLeft: {fileID: 303582872}
     m_SelectOnRight: {fileID: 303582872}
   m_Transition: 2
   m_Colors:
@@ -269,9 +269,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 9bfb431aaf76a88459040a475a15dc12,
+    m_HighlightedSprite: {fileID: 21300000, guid: fb3d3aa7f7c405c44b8ed0b69d56b63c,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: edf64d073194207459391f85eef79d23, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 9bfb431aaf76a88459040a475a15dc12, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -315,7 +315,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: edf64d073194207459391f85eef79d23, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9bfb431aaf76a88459040a475a15dc12, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -346,7 +346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &621602294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621602293}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -530,14 +530,14 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1153812911
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1153812910}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 

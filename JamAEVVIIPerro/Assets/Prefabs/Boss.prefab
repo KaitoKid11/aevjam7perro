@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a3ebd25d34a364c802c6a7b6ba6917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 15
 --- !u!114 &11411316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a3ebd25d34a364c802c6a7b6ba6917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 20
 --- !u!114 &11466038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a3ebd25d34a364c802c6a7b6ba6917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 20
 --- !u!114 &11481712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -769,7 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a3ebd25d34a364c802c6a7b6ba6917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 20
 --- !u!114 &11483518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -795,7 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a3ebd25d34a364c802c6a7b6ba6917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 15
 --- !u!212 &21208028
 SpriteRenderer:
   m_ObjectHideFlags: 1

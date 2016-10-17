@@ -53,6 +53,9 @@ public class EnemyManager : MonoBehaviour
     private int waves = 0;
     public int numWavesBetweenBosses = 3;
 
+    // Fin del juego
+    private bool endGame = false;
+
     // Tiempo de espera entre enemigos
     public float waitingTime = 1.0f;
 
@@ -95,7 +98,7 @@ public class EnemyManager : MonoBehaviour
     {
         yield return new WaitForSeconds(startWaitingTime);
 
-        while (true)
+        while (!endGame)
         {
             // Waiting...
             yield return new WaitForSeconds(waitingTime);
@@ -397,6 +400,29 @@ public class EnemyManager : MonoBehaviour
     {
         waitingTime = waitingTime - 0.4f;
         bossStage = false;
+    }
+
+    // Fin del juego
+    public void EndGame()
+    {
+        endGame = true;
+
+        // Eliminar enemigos en pantalla
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.Enemy);
+        GameObject[] bosses = GameObject.FindGameObjectsWithTag(Tags.Boss);
+
+        foreach (GameObject destroyable in enemies)
+        {
+            Destroy(destroyable);
+        }
+
+        foreach (GameObject destroyable in bosses)
+        {
+            if (destroyable.transform.parent != null)
+                Destroy(destroyable.transform.parent.gameObject);
+
+            Destroy(destroyable);
+        }
     }
 
     // La vieja atacó

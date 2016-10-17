@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyMoveSin : MonoBehaviour {
 
-    public float speed = 2.5f;
+    public float speed = 4.5f;
     public float sinCurveFactor = Random.Range(-1.5f, 1.5f);
 
 	void Start () {
