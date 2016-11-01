@@ -37,6 +37,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Márgenes del mapa de juego
+    //TOCHANGE - Se meten por fuera
     private float X_MIN = -7.0f;
     private float X_MAX = 6.56f;
 
@@ -398,11 +399,14 @@ public class EnemyManager : MonoBehaviour
     // Fin de la etapa del jefe
     public void BossDefeated()
     {
-        if(waitingTime > 0.5f)
+        if (waitingTime > 1f)
             waitingTime = waitingTime - 0.5f;
-        
-
-        GameObject.FindGameObjectsWithTag(Tags.Enemy);
+        else
+        {
+            //enemyHunter;
+            //enemyRoomba;
+            //enemyVacuum;
+        }
 
         bossStage = false;
     }

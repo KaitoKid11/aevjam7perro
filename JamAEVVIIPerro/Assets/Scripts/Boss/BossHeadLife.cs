@@ -5,6 +5,7 @@ public class BossHeadLife : MonoBehaviour {
 
     // Salud
     public float health = 10.0f;
+    public float enemyScore = 100f;
 
 	void Start ()
     {
@@ -41,6 +42,7 @@ public class BossHeadLife : MonoBehaviour {
         // Comprueba
         if (health <= 0.0f)
         {
+            GameManager.GameManagerInstance.increaseScore(enemyScore);
             Destroy(this.gameObject);
             transform.parent.GetComponent<BossLogic>().HeadDestroyed();
         }
