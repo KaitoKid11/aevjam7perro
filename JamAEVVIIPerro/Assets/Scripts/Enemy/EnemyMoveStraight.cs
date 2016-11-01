@@ -12,4 +12,10 @@ public class EnemyMoveStraight : MonoBehaviour {
 	void Update () {
         transform.Translate(0.0f, - speed * Time.deltaTime, 0.0f);
 	}
+
+    public void increaseDifficulty()
+    {
+        if(speed < 4f)
+            speed = speed + 0.5f;
+    }
 }

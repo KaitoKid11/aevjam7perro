@@ -17,4 +17,10 @@ public class EnemyMoveFollow : MonoBehaviour
 
         transform.Translate(directionVector * speed * Time.deltaTime);
 	}
+
+    public void increaseDifficulty()
+    {
+        if(speed < 5)
+            speed = speed + 0.5f;
+    }
 }

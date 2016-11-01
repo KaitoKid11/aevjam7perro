@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numWavesBetweenBosses: 20
-  waitingTime: 2.5
+  waitingTime: 1
   startWaitingTime: 5
   enemyRoomba: {fileID: 117212, guid: 97847d0d52c61004fbbc83dc09bf3d9d, type: 2}
   enemyVacuum: {fileID: 117212, guid: 4b036b10c225e5f469cd7136b6e82c9c, type: 2}

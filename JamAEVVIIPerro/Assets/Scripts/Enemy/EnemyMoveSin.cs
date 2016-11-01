@@ -13,4 +13,10 @@ public class EnemyMoveSin : MonoBehaviour {
 	void Update () {
         transform.Translate(Mathf.Sin(Time.time) * sinCurveFactor * Time.deltaTime, -speed * Time.deltaTime, 0.0f);
 	}
+
+    public void increaseDifficulty()
+    {
+        if(speed < 4f)
+            speed = speed + 0.5f;
+    }
 }

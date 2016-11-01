@@ -395,7 +395,12 @@ public class EnemyManager : MonoBehaviour
     // Fin de la etapa del jefe
     public void BossDefeated()
     {
-        waitingTime = waitingTime - 0.4f;
+        if(waitingTime > 0.5f)
+            waitingTime = waitingTime - 0.5f;
+        
+
+        GameObject.FindGameObjectsWithTag(Tags.Enemy);
+
         bossStage = false;
     }
 
