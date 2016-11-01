@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour {
 
         pauseMenuContainer = GameObject.FindGameObjectWithTag(Tags.PauseMenu);
         pauseMenu = pauseMenuContainer.transform.Find("PauseMenu").gameObject;
+
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag(Tags.Player);
     }
 	
 	// Update is called once per frame
@@ -77,7 +80,6 @@ public class GameManager : MonoBehaviour {
         GameObject[] balasEnemigas = GameObject.FindGameObjectsWithTag(Tags.EnemyBullet);
         GameObject[] boss = GameObject.FindGameObjectsWithTag(Tags.Boss);
 
-
         foreach (GameObject destroyable in balasEnemigas)
         {
             Destroy(destroyable);
@@ -98,6 +100,13 @@ public class GameManager : MonoBehaviour {
         //Debug.Log("FUCKING DEAD BIATCH");
         GUIManager.GUIManagerInstance.playerDead();
         player.GetComponent<CircleCollider2D>().enabled = false;
+
+        // Quitar player
+        player.gameObject.SetActive(false);
+
+        // Parar enemigos
+        EnemyManager.enemyManagerInstance.EndGame();
+
         //PersistentScore.PersistentScoreInstance.setFinalScore(score);
         //SceneManager.LoadScene("MainMenu");
     }
